@@ -1,0 +1,5 @@
+/* cenas: five brand tabs do not fit a phone width; the strip scrolls instead of wrapping. */
+.price-tabs { overflow-x: auto; scrollbar-width: none; margin-bottom: var(--s-6); }
+.price-tabs::-webkit-scrollbar { display: none; }
+.price-tabs .tab { flex: none; }
+.price-tabs .tab::after { bottom: 0; }

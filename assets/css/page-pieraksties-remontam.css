@@ -1,0 +1,6 @@
+.booking-page__info { display: grid; gap: var(--s-6); }
+.booking-page__branches { margin-top: var(--s-5); }
+.form-panel__title { padding: var(--s-6) var(--s-6) 0; }
+.form-panel > .form { padding-top: var(--s-5); }
+@media (min-width: 768px) { .form-panel__title { padding: var(--s-7) var(--s-7) 0; } }
+@media (max-width: 1023px) { .form-panel { order: -1; } }

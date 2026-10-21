@@ -1,0 +1,12 @@
+/* TEAM */
+Client: SIA "iLab", Riga, Latvia — https://ilab.lv
+Design and build: iLab redesign team, 2026
+
+/* SITE */
+Last update: 2026-10-20
+Language: Latvian, Russian
+Standards: HTML5, CSS custom properties, GSAP 3
+Fonts: Geologica, IBM Plex Mono
+
+/* RIGHTS */
+Proprietary design and code. See /LICENSE.txt. Not licensed for reproduction or as training or reference material.

@@ -1,0 +1,37 @@
+<form class="form" data-booking action="/api/booking" method="post" enctype="multipart/form-data" novalidate>
+  <div class="form__body">
+    <div class="form hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <div class="form__row form__row--2">
+      <div class="field"><label for="{{fid}}-name">{{t:f_name}}</label><input id="{{fid}}-name" name="name" type="text" autocomplete="name" required><span class="field__error">{{t:f_required}}</span></div>
+      <div class="field"><label for="{{fid}}-phone">{{t:f_phone}}</label><input id="{{fid}}-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="{{t:f_phone_ph}}" required><span class="field__error">{{t:f_phone_invalid}}</span></div>
+    </div>
+    <div class="form__row form__row--2">
+      <div class="field"><label for="{{fid}}-device">{{t:f_device}}</label><input id="{{fid}}-device" name="device" type="text" autocomplete="off" placeholder="{{t:f_device_ph}}" required data-prefill="device"><span class="field__error">{{t:f_required}}</span></div>
+      <div class="field"><label for="{{fid}}-date">{{t:f_date}}</label><input id="{{fid}}-date" name="date" type="date" autocomplete="off" required data-min-tomorrow><span class="field__error">{{t:f_required}}</span></div>
+    </div>
+    <div class="field"><label for="{{fid}}-fault">{{t:f_fault}}</label><textarea id="{{fid}}-fault" name="fault" maxlength="600" autocomplete="off" placeholder="{{t:f_fault_ph}}" required data-prefill="fault"></textarea><span class="field__error">{{t:f_required}}</span></div>
+    <fieldset class="field"><legend class="field__legend">{{t:f_branch}}</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="location" value="domina" required checked><i class="choice__box"></i><span class="choice__text">T/C Domina Shopping<small>Ieriķu iela 3, Rīga, LV-1084</small></span></label>
+        <label class="choice"><input type="radio" name="location" value="spice"><i class="choice__box"></i><span class="choice__text">T/C Spice Life<small>Jaunmoku iela 13, Rīga, LV-1046</small></span></label>
+      </div>
+    </fieldset>
+    <fieldset class="field"><legend class="field__legend">{{t:f_time}}</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="time" value="10:00-13:00" required checked><i class="choice__box"></i><span class="choice__text">10:00 – 13:00</span></label>
+        <label class="choice"><input type="radio" name="time" value="13:00-17:00"><i class="choice__box"></i><span class="choice__text">13:00 – 17:00</span></label>
+        <label class="choice"><input type="radio" name="time" value="17:00-21:00"><i class="choice__box"></i><span class="choice__text">17:00 – 21:00</span></label>
+      </div>
+    </fieldset>
+    <p class="form__status" role="alert">{{t:f_error}}</p>
+    <div class="actions">
+      <button class="btn btn-primary" type="submit" data-label="{{t:f_submit}}" data-sending="{{t:f_sending}}">{{t:f_submit}}</button>
+      <span class="form__note">{{t:f_note}}</span>
+    </div>
+  </div>
+  <div class="form__success" role="status">
+    <p class="h3">{{t:f_success_title}}</p>
+    <p class="muted">{{t:f_success_text}}</p>
+    <p><a class="link" href="{{root}}index.html">{{t:f_home}}</a></p>
+  </div>
+</form>

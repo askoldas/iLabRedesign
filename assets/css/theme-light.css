@@ -1,0 +1,38 @@
+/* Light theme (shop). Same components, inverted surfaces. Drawers, footer and form panels stay dark ("counter"). */
+[data-theme="light"] {
+  --paper: #F4F6F8;
+  --paper-2: #FFFFFF;
+  --paper-3: #E6EBEF;
+  --ink: #101418;
+  --ink-2: #46525C;
+  --ink-3: #6F7B85;
+  --hairline: #D3DAE0;
+  --signal-text: #0E7F97;
+  --error: #B3261E;
+  --error-soft: #B3261E;
+  --scrim: rgba(16, 20, 24, 0.55);
+  color-scheme: light;
+}
+[data-theme="light"] .photo img { filter: saturate(0.95) contrast(1.02); }
+[data-theme="light"] .map { background: var(--paper-3); }
+[data-theme="light"] .map img { filter: saturate(0) invert(1) brightness(1.02) contrast(0.95); }
+[data-theme="light"] .map__pin { color: var(--ink); }
+[data-theme="light"] .map__pin span { background: var(--paper-2); border-color: var(--hairline); }
+[data-theme="light"] .tech a:hover, [data-theme="light"] a.tech:hover { color: var(--ink); }
+[data-theme="light"] .btn-traced { color: var(--signal-text); border-color: rgba(14, 127, 151, 0.4); }
+[data-theme="light"] .btn-traced:hover, [data-theme="light"] .btn-traced:focus-visible { color: var(--on-signal); }
+[data-theme="light"] .btn-shop:hover, [data-theme="light"] .btn-shop:focus-visible { color: var(--signal-text); border-color: var(--signal); }
+[data-theme="light"] .scan__trail { background: linear-gradient(to top, rgba(71,198,226,.45), rgba(71,198,226,0)); }
+[data-theme="light"] .rail__sect { background: var(--paper); }
+[data-theme="light"] .cookie { background: var(--counter); color: var(--counter-ink); border-color: var(--counter-hair); }
+[data-theme="light"] .cookie .muted { color: var(--counter-ink-2); }
+[data-theme="light"] .spec th { border-bottom-color: var(--ink); }
+[data-theme="light"] .status__dot.is-open { background: var(--signal-text); }
+/* the shop toggle sits "on" while you are in the shop; it links back to the service site */
+[data-theme="light"] .toggle { animation: none; background: var(--signal); }
+[data-theme="light"] .toggle__knob { animation: none; transform: translateX(18px); background: var(--on-signal); }
+[data-theme="light"] .btn-shop:hover .toggle, [data-theme="light"] .btn-shop:focus-visible .toggle { background: transparent; }
+[data-theme="light"] .btn-shop:hover .toggle__knob, [data-theme="light"] .btn-shop:focus-visible .toggle__knob { transform: translateX(0); background: var(--signal); }
+[data-theme="light"] .cookie .btn-secondary { color: var(--counter-ink); border-color: var(--counter-ink-2); }
+[data-theme="light"] .cookie .btn-secondary:hover { background: var(--counter-2); }
+[data-theme="light"] .counter { --error-soft: #F2B8B5; }

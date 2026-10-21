@@ -1,0 +1,96 @@
+<!-- @meta title: My account | iLab Shop -->
+<!-- @meta description: Your iLab Shop account: orders, invoices, profile and wholesale partner status. -->
+<!-- @meta page: -->
+<!-- @meta lang: en -->
+<!-- @meta theme: light -->
+<!-- @meta alt: index.html -->
+<!-- @meta altlang: lv -->
+<!-- @meta shop: {{root}}index.html -->
+<!-- @meta shop_aria: Back to the repair service -->
+<!-- @meta head: <link rel="stylesheet" href="{{root}}assets/css/shop.css"> -->
+<!-- @include partials/head.html -->
+<!-- @include partials/header-shop.html -->
+
+<main id="main">
+
+  <nav class="container" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="{{root}}shop/index.html">Shop</a></li><li>My account</li></ol></nav>
+
+  <section class="page-hero container" data-account aria-labelledby="account-title">
+    <div class="grid">
+      <div class="page-hero__copy">
+        <h1 class="display-2 h1-lines" id="account-title" data-rise><span>My account</span></h1>
+        <p class="tech" data-account-name data-account-section></p>
+      </div>
+      <div class="page-hero__aside" data-account-section>
+        <p class="actions"><button class="btn btn-secondary" type="button" data-logout>Log out</button></p>
+      </div>
+    </div>
+
+    <div data-account-gate hidden>
+      <div class="gate" style="margin-top:var(--s-6)">
+        <h2 class="h2">Sign in to see your account</h2>
+        <p class="lead muted">Your orders and invoices will be available in your account.</p>
+        <p class="actions"><button class="btn btn-primary" type="button" data-open="login">Login</button><a class="btn btn-secondary" href="{{root}}shop/index.html">Continue shopping</a></p>
+      </div>
+    </div>
+
+    <div data-account-section style="margin-top:var(--s-7)">
+    <div class="two-col">
+      <div>
+        <nav class="sticky" aria-label="Account sections">
+          <p class="label">Account</p>
+          <ol class="toc">
+            <li><a href="#orders">Orders</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#wholesale">Wholesale</a></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="list-rows">
+
+        <section id="orders" aria-labelledby="orders-title">
+          <h2 class="h2" id="orders-title">Orders</h2>
+          <div class="orders" data-account-orders></div>
+          <p class="state-text" data-account-orders-empty hidden>No orders yet.</p>
+        </section>
+
+        <section id="profile" aria-labelledby="profile-title">
+          <h2 class="h2" id="profile-title">Profile</h2>
+          <form class="form" data-account-profile novalidate>
+            <div class="form__body">
+              <div class="form__row form__row--2">
+                <div class="field"><label for="ac-name">Name *</label><input id="ac-name" name="name" type="text" maxlength="160" autocomplete="name" required><span class="field__error">This field is required</span></div>
+                <div class="field"><label for="ac-phone">Phone *</label><input id="ac-phone" name="phone" type="tel" inputmode="tel" maxlength="40" autocomplete="tel" required><span class="field__error">This field is required</span></div>
+              </div>
+              <div class="field"><label for="ac-company">Company name</label><input id="ac-company" name="companyName" type="text" maxlength="200" autocomplete="organization"></div>
+              <div class="form__row form__row--2">
+                <div class="field"><label for="ac-reg">Registration number</label><input id="ac-reg" name="registrationNumber" type="text" maxlength="80"></div>
+                <div class="field"><label for="ac-vat">VAT number</label><input id="ac-vat" name="vatNumber" type="text" maxlength="80"></div>
+              </div>
+              <div class="field"><label for="ac-billing">Legal / billing address</label><textarea id="ac-billing" name="billingAddress" maxlength="500" autocomplete="street-address"></textarea></div>
+              <p class="actions"><button class="btn btn-primary" type="submit">Save changes</button></p>
+            </div>
+            <div class="form__success" role="status" style="border-top-color:var(--hairline)"><p class="h3">Changes saved</p><p class="muted">Name, phone and company/invoice details will be used for future orders.</p></div>
+          </form>
+        </section>
+
+        <section id="wholesale" aria-labelledby="wholesale-title">
+          <h2 class="h2" id="wholesale-title">Wholesale partner</h2>
+          <dl class="kv">
+            <dt>Status</dt><dd data-account-wholesale>Retail account</dd>
+          </dl>
+          <p>Wholesale accounts are approved by iLab. Approved partners see wholesale prices and net amounts excl. VAT.</p>
+        </section>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- @include partials/footer-shop.html -->
+<!-- @include partials/dock-shop.html -->
+<!-- @include partials/panels-shop.html -->
+<!-- @include partials/cookie.html -->
+<!-- @include partials/scripts-shop.html -->

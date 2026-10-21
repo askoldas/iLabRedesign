@@ -1,0 +1,63 @@
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a class="logo" href="{{root}}index.html" aria-label="{{t:logo_aria}}"><!-- @include partials/logo.html --></a>
+    <nav class="nav" aria-label="{{t:nav_aria}}">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" data-page="iphone" href="{{root}}iphone-remonts.html">{{t:nav_iphone}}</a></li>
+        <li class="nav__item has-menu">
+          <a class="nav__link" data-page="phones" href="{{root}}iphone-remonts.html" data-template-of="/telefonu-remonts">{{t:nav_phones}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nav__menu">
+            <li><a href="{{root}}telefonu-remonts-samsung.html">Samsung</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/telefonu-remonts/xiaomi">Xiaomi</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/telefonu-remonts/huawei">Huawei</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/telefonu-remonts/oneplus">OnePlus</a></li>
+            <li><a class="is-all" href="{{root}}iphone-remonts.html" data-template-of="/telefonu-remonts">{{t:all_brands}}</a></li>
+          </ul>
+        </li>
+        <li class="nav__item has-menu">
+          <a class="nav__link" data-page="tablets" href="{{root}}iphone-remonts.html" data-template-of="/plansetdatoru-remonts">{{t:nav_tablets}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nav__menu">
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/plansetdatoru-remonts/ipad">iPad</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/plansetdatoru-remonts/samsung">Samsung</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/plansetdatoru-remonts/xiaomi">Xiaomi</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/plansetdatoru-remonts/huawei">Huawei</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/plansetdatoru-remonts/lenovo">Lenovo</a></li>
+          </ul>
+        </li>
+        <li class="nav__item has-menu">
+          <a class="nav__link" data-page="computers" href="{{root}}iphone-remonts.html" data-template-of="/datoru-remonts">{{t:nav_computers}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <ul class="nav__menu">
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/macbook">MacBook</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/imac">iMac</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/mac-pro">Mac Pro</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/lenovo">Lenovo</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/asus">Asus</a></li>
+            <li><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/hp">HP</a></li>
+            <li><a class="is-all" href="{{root}}iphone-remonts.html" data-template-of="/datoru-remonts">{{t:all_brands}}</a></li>
+          </ul>
+        </li>
+        <li class="nav__item"><a class="nav__link" data-page="dyson" href="{{root}}dyson-remonts.html">{{t:nav_dyson}}</a></li>
+        <li class="nav__item has-menu">
+          <button class="nav__link" type="button" aria-haspopup="true">{{t:more}}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <ul class="nav__menu">
+            <li><a href="{{root}}dyson-remonts.html" data-template-of="/fotoaparatu-remonts" data-page="cameras">{{t:nav_cameras}}</a></li>
+            <li><a href="{{root}}cenas.html">{{t:prices}}</a></li>
+            <li><a href="{{root}}buj.html">{{t:faq}}</a></li>
+            <li><a href="{{root}}par-mums.html">{{t:about}}</a></li>
+            <li><a href="{{root}}kontakti.html">{{t:contacts}}</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-shop btn--sm only-desktop" href="{{shop}}" aria-label="{{shop_aria}}"><span class="toggle" aria-hidden="true"><i class="toggle__knob"></i></span><span class="btn__label">{{shop_label}}</span></a>
+      <a class="icon-btn only-desktop" href="{{root}}iphone-remonts.html#iphone-modeli" aria-label="{{t:search_aria}}"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></a>
+      <a class="lang only-desktop" href="{{root}}{{alt}}" data-lang-switch hreflang="{{altlang}}" aria-label="{{t:lang_switch_aria}}">{{t:lang_switch}}</a>
+      <button class="btn btn-secondary btn--sm only-desktop" type="button" data-open="locator"><svg viewBox="0 0 24 24" aria-hidden="true" class="btn__icon"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>{{t:service_centres}}</button>
+      <button class="btn btn-traced btn--sm only-desktop" type="button" data-open="contact" aria-label="{{t:contact_aria}}"><svg class="btn-trace" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" pathLength="100" class="btn-trace__trail"/><rect x="0" y="0" width="100" height="100" pathLength="100" class="btn-trace__head"/></svg>{{t:contact}}</button>
+      <button class="icon-btn only-mobile" type="button" data-open="locator" aria-label="{{t:service_centres}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></button>
+      <a class="btn btn-secondary btn--sm only-mobile" href="{{root}}cenas.html">{{t:prices}}</a>
+      <button class="burger only-mobile" type="button" data-open="menu" aria-label="{{t:menu}}" aria-controls="mobile-drawer" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>

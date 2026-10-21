@@ -1,0 +1,136 @@
+<!-- @meta title: Checkout | iLab Shop -->
+<!-- @meta description: Checkout at iLab Shop: customer details, pickup, courier or Omniva delivery, bank transfer or cash on pickup. -->
+<!-- @meta page: -->
+<!-- @meta lang: en -->
+<!-- @meta theme: light -->
+<!-- @meta alt: index.html -->
+<!-- @meta altlang: lv -->
+<!-- @meta shop: {{root}}index.html -->
+<!-- @meta shop_aria: Back to the repair service -->
+<!-- @meta head: <link rel="stylesheet" href="{{root}}assets/css/shop.css"><link rel="stylesheet" href="{{root}}assets/css/page-shop-checkout.css"> -->
+<!-- @include partials/head.html -->
+<!-- @include partials/header-shop.html -->
+
+<main id="main">
+
+  <nav class="container" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="{{root}}shop/index.html">Shop</a></li><li>Checkout</li></ol></nav>
+
+  <section class="page-hero container" aria-label="Checkout">
+    <form class="form" data-checkout action="/shop/api/orders" method="post" novalidate>
+
+      <div data-checkout-state="auth">
+        <div class="gate">
+          <p class="hero__eyebrow"><span class="tech">Checkout requires an account</span></p>
+          <h1 class="display-2 h1-lines" data-rise><span>Sign in or create an account to continue</span></h1>
+          <p class="lead muted">Your orders and invoices will be available in your account. Your cart will remain intact.</p>
+          <p class="actions"><button class="btn btn-primary" type="button" data-open="login">Login</button><a class="btn btn-secondary" href="{{root}}shop/index.html">Continue shopping</a></p>
+        </div>
+      </div>
+
+      <div data-checkout-state="empty" hidden>
+        <div class="gate">
+          <p class="hero__eyebrow"><span class="tech">Checkout</span></p>
+          <h1 class="display-2 h1-lines" data-rise><span>Your cart is empty</span></h1>
+          <p class="lead muted">Add products before checking out.</p>
+          <p class="actions"><a class="btn btn-primary" href="{{root}}shop/index.html#products">Browse the catalog</a></p>
+        </div>
+      </div>
+
+      <div data-checkout-state="form" hidden>
+        <div class="checkout-head">
+          <p class="hero__eyebrow"><span class="tech">Checkout</span></p>
+          <h1 class="display-2 h1-lines" data-rise><span>Checkout</span></h1>
+        </div>
+        <div class="checkout">
+          <div class="checkout__form">
+
+            <section class="checkout__group" aria-labelledby="co-customer-title">
+              <h2 class="h3" id="co-customer-title">Customer details</h2>
+              <div class="field"><label for="co-name">Name *</label><input id="co-name" name="name" type="text" maxlength="160" autocomplete="name" required><span class="field__error">This field is required</span></div>
+              <div class="form__row form__row--2">
+                <div class="field"><label for="co-email">Email for this order *</label><input id="co-email" name="email" type="email" maxlength="254" autocomplete="email" required><span class="field__error">Enter a valid email address.</span></div>
+                <div class="field"><label for="co-phone">Phone *</label><input id="co-phone" name="phone" type="tel" inputmode="tel" maxlength="40" autocomplete="tel" required><span class="field__error">This field is required</span></div>
+              </div>
+              <h3 class="label checkout__sub-title">Company / invoice details (optional)</h3>
+              <div class="field"><label for="co-company">Company name</label><input id="co-company" name="companyName" type="text" maxlength="200" autocomplete="organization"></div>
+              <div class="form__row form__row--2">
+                <div class="field"><label for="co-reg">Registration number</label><input id="co-reg" name="registrationNumber" type="text" maxlength="80"></div>
+                <div class="field"><label for="co-vat">VAT number</label><input id="co-vat" name="vatNumber" type="text" maxlength="80"></div>
+              </div>
+              <div class="field"><label for="co-billing">Legal / billing address</label><textarea id="co-billing" name="billingAddress" maxlength="500" autocomplete="street-address"></textarea></div>
+              <label class="choice"><input type="checkbox" name="saveProfile" value="1" checked><i class="choice__box"></i><span class="choice__text">Save these details to my account for future orders<small>Name, phone and company/invoice details will be saved. Account email will not be changed.</small></span></label>
+            </section>
+
+            <section class="checkout__group" role="radiogroup" aria-labelledby="co-fulfillment-title" aria-required="true">
+              <h2 class="h3" id="co-fulfillment-title">How would you like to receive your order? *</h2>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="fulfillment" value="pickup" checked required><i class="choice__box"></i><span class="choice__text">Pickup<small>Collect from an iLab location</small></span><span class="choice__price">Free</span></label>
+                <div data-fulfil-fields="pickup">
+                  <div class="checkout__sub choices" role="radiogroup" aria-label="Pickup location">
+                    <label class="choice"><input type="radio" name="pickup" value="domina" checked required><i class="choice__box"></i><span class="choice__text">Domina Shopping, Ieriķu iela 3<small>Mon–Sun 10:00–21:00</small></span></label>
+                  </div>
+                </div>
+                <label class="choice"><input type="radio" name="fulfillment" value="courier"><i class="choice__box"></i><span class="choice__text">Courier delivery<small>Delivered to your address</small></span><span class="choice__price">€5.00</span></label>
+                <div data-fulfil-fields="courier" hidden>
+                  <div class="checkout__sub">
+                    <label class="choice"><input type="checkbox" name="useBillingAddress" value="1" data-use-billing><i class="choice__box"></i><span class="choice__text">Use the billing address above</span></label>
+                    <div data-delivery-address>
+                      <div class="field"><label for="co-delivery">Delivery address *</label><textarea id="co-delivery" name="deliveryAddress" maxlength="500" autocomplete="shipping street-address" required></textarea><span class="field__error">This field is required</span></div>
+                    </div>
+                  </div>
+                </div>
+                <label class="choice"><input type="radio" name="fulfillment" value="omniva"><i class="choice__box"></i><span class="choice__text">Omniva parcel machine<small>Send to a parcel machine</small></span><span class="choice__price">€2.93</span></label>
+                <div data-fulfil-fields="omniva" hidden>
+                  <div class="checkout__sub form__row form__row--2">
+                    <div class="field"><label for="co-omniva-city">City *</label><input id="co-omniva-city" name="omnivaCity" type="text" maxlength="120" autocomplete="address-level2" required><span class="field__error">This field is required</span></div>
+                    <div class="field"><label for="co-omniva-machine">Parcel machine / address *</label><input id="co-omniva-machine" name="omnivaMachine" type="text" maxlength="200" required><span class="field__error">This field is required</span></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="checkout__group" role="radiogroup" aria-labelledby="co-payment-title" aria-required="true">
+              <h2 class="h3" id="co-payment-title">Payment method *</h2>
+              <div class="choices">
+                <label class="choice"><input type="radio" name="payment" value="bank" checked required><i class="choice__box"></i><span class="choice__text">Bank transfer</span></label>
+                <label class="choice"><input type="radio" name="payment" value="cash"><i class="choice__box"></i><span class="choice__text">Cash on pickup</span></label>
+              </div>
+            </section>
+
+          </div>
+
+          <aside class="summary counter sticky" aria-labelledby="co-summary-title">
+            <p class="label" id="co-summary-title">Order summary</p>
+            <div data-summary-lines></div>
+            <p class="summary__line"><span>Products subtotal</span><span class="num" data-summary-subtotal></span></p>
+            <p class="summary__line"><span>Delivery</span><span class="num" data-summary-delivery>Free</span></p>
+            <p class="summary__line is-total"><span>Total</span><span class="num" data-summary-total></span></p>
+            <p class="summary__warn" data-summary-warn hidden>The cart changed. Please fix unavailable items before ordering.</p>
+            <p class="form__status" role="alert">Complete all required fields.</p>
+            <button class="btn btn-primary btn--block" type="submit" data-place-order data-label="Place order" data-sending="Placing order…">Place order</button>
+          </aside>
+        </div>
+      </div>
+
+      <div data-checkout-state="done" hidden>
+        <div class="gate">
+          <p class="hero__eyebrow"><span class="tech">Checkout</span></p>
+          <h1 class="display-2 h1-lines" data-rise><span>Order placed</span></h1>
+          <p class="h3">Order confirmed</p>
+          <p class="lead" data-order-ref>Order #… has been placed.</p>
+          <p class="tech" data-order-invoice>Invoice …</p>
+          <p class="muted">Use the invoice number as the payment reference.</p>
+          <p class="actions"><a class="btn btn-secondary" href="#" data-invoice>View invoice</a><a class="btn-text" href="#" data-invoice>Download invoice</a><a class="btn-text" href="{{root}}shop/account.html#orders">View orders in Account</a></p>
+        </div>
+      </div>
+
+    </form>
+  </section>
+
+</main>
+
+<!-- @include partials/footer-shop.html -->
+<!-- @include partials/dock-shop.html -->
+<!-- @include partials/panels-shop.html -->
+<!-- @include partials/cookie.html -->
+<!-- @include partials/scripts-shop.html -->

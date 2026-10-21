@@ -1,0 +1,121 @@
+<!-- @meta title: Remonta cenas Rīgā | iLab -->
+<!-- @meta description: iPhone, Samsung, datoru, planšetdatoru un Dyson remonta cenas Rīgā. Diagnostika, skaidra cena pirms darba un garantija. -->
+<!-- @meta page:  -->
+<!-- @meta lang: lv -->
+<!-- @meta alt: index.html -->
+<!-- @meta altlang: ru -->
+<!-- @meta head: <link rel="stylesheet" href="assets/css/page-cenas.css"> -->
+<!-- @include partials/head.html -->
+<!-- @include partials/header.html -->
+
+<main id="main">
+
+  <nav class="container" aria-label="Breadcrumb"><ol class="crumbs"><li><a href="{{root}}index.html">Sākums</a></li><li>Remonta cenas</li></ol></nav>
+
+  <!-- Hero: find your model's price; if it is missing, ask -->
+  <section class="page-hero container">
+    <div class="grid">
+      <div class="page-hero__copy">
+        <h1 class="display-2 h1-lines" data-rise><span>Remonta cenas</span></h1>
+        <p class="lead measure-narrow muted">Izvēlies ierīces zīmolu un modeli, lai vienuviet apskatītu publicētās remonta cenas, termiņus un pieejamos pakalpojumus.</p>
+        <p class="actions" data-stagger>
+          <button class="btn btn-primary" type="button" data-open="booking">Pieteikt remontu</button>
+          <a class="btn btn-secondary" href="#cenas">Skatīt cenas</a>
+        </p>
+      </div>
+      <aside class="page-hero__aside counter board" data-scan aria-label="Cena nav redzama">
+        <p class="lead">Cena nav redzama? Zvani vai raksti - precizēsim pēc diagnostikas.</p>
+        <p class="board__foot" style="margin-top:24px"><span>T/C Domina Shopping · <a class="link link--quiet" href="tel:+37123370088">Zvanīt</a> · <a class="link link--quiet" href="https://wa.me/37123370088" rel="noopener" target="_blank">WhatsApp</a></span></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Price browser: brand -> series -> model -> table -->
+  <section class="section container" id="cenas">
+    <div class="section-head">
+      <h2 class="h2">Cenas pēc modeļa</h2>
+    </div>
+    <div data-price-browser>
+      <h2 class="label">Izvēlies zīmolu</h2>
+      <div class="tabs tabs--light price-tabs" data-browser-tabs role="tablist" aria-label="Zīmols"></div>
+      <div class="price-layout">
+        <div data-browser-list class="series-list"></div>
+        <div class="price-layout__table sticky">
+          <div>
+            <p class="label">Izvēlētais modelis</p>
+            <h3 class="h3" data-browser-title></h3>
+          </div>
+          <div data-browser-table></div>
+          <div class="spec-notes">
+            <p>Bezmaksas diagnostika. Precīzu cenu apstiprinām pēc pārbaudes.</p>
+            <p>Cenas norādītas ar detaļu un darba izmaksām.</p>
+            <p>Norādītā cena ir spēkā, ja detaļa ir pieejama noliktavā.</p>
+          </div>
+          <p class="actions"><button class="btn btn-primary" type="button" data-open="booking">Pieteikties remontam</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to get the exact price -->
+  <section class="section container" id="precizi">
+    <div class="process-layout">
+      <div>
+        <h2 class="h2">Kā uzzināt precīzu cenu</h2>
+      </div>
+      <div class="process" data-process>
+      <div class="process__track"><i class="process__seg"></i></div>
+      <ol class="process__steps">
+        <li class="process__step"><span class="process__n">1</span><h3 class="h3">Izvēlies modeli</h3><p>Atrodi savu zīmolu un modeli cenrādī - redzēsi publicētās cenas un tipiskos pakalpojumus.</p></li>
+        <li class="process__step"><span class="process__n">2</span><h3 class="h3">Ja cena nav redzama - sazinies</h3><p>Dažiem retākiem modeļiem vai darbiem cenu nosakām pēc diagnostikas un detaļu pieejamības.</p></li>
+        <li class="process__step"><span class="process__n">3</span><h3 class="h3">Saskaņojam tāmi un termiņu</h3><p>Pirms remonta apstiprinām cenu un izpildes laiku. Nekādu pārsteigumu pēc fakta.</p></li>
+        <li class="process__step"><span class="process__n">4</span><h3 class="h3">Remonts + tests</h3><p>Veicam remontu, testējam un izsniedzam ierīci ar garantiju atkarībā no darba un detaļas.</p></li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section container">
+    <div class="why">
+      <div>
+        <h2 class="h2">Kāpēc iLab?</h2>
+        <p class="lead muted" style="margin-top:16px">Uzticami remonti, caurspīdīgas cenas un ātrs apgrozījums no sertificētiem tehniķiem.</p>
+      </div>
+      <div class="facts" data-stagger>
+        <div class="fact"><span class="num">1 gads</span><span class="small">Garantija līdz 1 gadam darbam un detaļām</span></div>
+        <div class="fact"><span class="num">Šodien</span><span class="small">Ātrs remonts - biežākos darbus paveicam tajā pašā dienā</span></div>
+        <div class="fact"><span class="num">0 €</span><span class="small">Bezmaksas diagnostika pirms jebkura darba</span></div>
+        <div class="fact"><span class="num">2013</span><span class="small">Sertificēti meistari, strādājam kopš 2013. gada</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container" id="buj">
+    <div class="section-head">
+      <h2 class="h2">Biežāk uzdotie jautājumi</h2>
+      <p class="lead"><a class="link" href="{{root}}buj.html">Visi jautājumi</a></p>
+    </div>
+    <div class="faq">
+      <details class="acc acc--faq" open><summary>Kāpēc dažiem modeļiem cena nav redzama?<i class="plus"></i></summary><div class="acc__body"><p>Ne visiem modeļiem un pakalpojumiem cenas ir publicētas. Šādos gadījumos sazinieties ar mums - precizēsim cenu un termiņu pēc diagnostikas.</p></div></details>
+      <details class="acc acc--faq"><summary>Vai cena var atšķirties pēc diagnostikas?<i class="plus"></i></summary><div class="acc__body"><p>Dažreiz jā - ja papildus konstatējam citus bojājumus, piemēram, uzlādes ķēdes vai mitruma sekas, pirms remonta saskaņojam atjauninātu tāmi.</p></div></details>
+      <details class="acc acc--faq"><summary>Vai ir garantija?<i class="plus"></i></summary><div class="acc__body"><p>Jā - remontiem parasti ir garantija. Konkrētais termiņš var atšķirties atkarībā no pakalpojuma un detaļas veida.</p></div></details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band counter">
+    <div class="container grid">
+      <h2 class="h2">Vajadzīga palīdzība?</h2>
+      <p class="actions"><button class="btn btn-primary" type="button" data-open="contact">Sazināties ar tehniķi</button><a class="link" href="{{root}}pieraksties-remontam.html">Pieraksties uz remontu</a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- @include partials/footer.html -->
+<!-- @include partials/bottombar.html -->
+<!-- @include partials/panels.html -->
+<!-- @include partials/cookie.html -->
+<!-- @include partials/scripts.html -->

@@ -1,0 +1,4 @@
+.photo--band img { object-position: center 55%; }
+.device-row { grid-template-columns: 1fr; }
+@media (min-width: 1024px) { .device-row { grid-template-columns: 4fr 8fr; column-gap: var(--gutter); align-items: baseline; } }
+.two-col > .prose { align-content: start; }

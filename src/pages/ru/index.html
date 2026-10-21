@@ -1,0 +1,215 @@
+<!-- RU inner pages mirror the LV ones 1:1 on the live site, so internal links here point at the LV mockups. -->
+<!-- @meta title: Ремонт телефонов в Риге - ремонт iPhone, Samsung, компьютеров и других устройств -->
+<!-- @meta description: Качественный ремонт техники в Риге: iPhone, Samsung, планшеты, компьютеры и Dyson. Бесплатная диагностика, быстрый сервис, гарантия, с 2013. -->
+<!-- @meta page: home -->
+<!-- @meta lang: ru -->
+<!-- @meta alt: index.html -->
+<!-- @meta altlang: lv -->
+<!-- @include partials/head.html -->
+<!-- @include partials/header.html -->
+
+<main id="main">
+
+  <!-- Hero: headline left, the real workshop photo bleeding right -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="hero__eyebrow"><span class="tech">iLab<span class="sep">/</span>Точный ремонт<span class="sep">/</span>Рига</span><span class="tech-n">01</span></p>
+        <h1 class="display-1 h1-lines" data-rise><span>Ваш эксперт по ремонту</span><span>мобильных устройств</span><span>и компьютеров в Риге</span></h1>
+        <p class="lead measure-narrow muted">Ремонт в тот же день. Гарантия до 1 года. Два филиала в Риге: Domina и Spice Life. Работаем с 2013 года.</p>
+        <p class="hero__proof" data-stagger>
+          <a class="link link--quiet" href="#reviews"><span class="num">4.9–5.0</span> · 1199 отзывов · Google</a>
+          <span>Бесплатная диагностика</span>
+          <span>Цена до начала работ</span>
+        </p>
+        <p class="actions" data-stagger>
+          <button class="btn btn-primary" type="button" data-open="booking">Записаться на ремонт</button>
+          <a class="btn btn-secondary" href="{{root}}cenas.html">Смотреть цены</a>
+        </p>
+        <a class="hero__cue" href="#pakalpojumi"><svg viewBox="0 0 14 36" aria-hidden="true"><path d="M7 0v34M1 28l6 6 6-6"/></svg><span>Прокрутить вниз</span></a>
+      </div>
+      <figure class="hero__visual">
+        <div class="photo" data-scan="x"><img src="{{root}}assets/img/home-hero-repair.webp" alt="Мастер iLab ремонтирует смартфон со снятой задней крышкой" width="1600" height="900" fetchpriority="high"></div>
+      </figure>
+    </div>
+    <div class="container hero__coords">
+      <span class="tech">56.9664° N<span class="sep">·</span>24.1660° E<span class="sep">/</span>Domina</span>
+      <span class="tech">56.9313° N<span class="sep">·</span>24.0393° E<span class="sep">/</span>Spice Life</span>
+      <span class="tech">С 2013<span class="sep">/</span>2 филиала<span class="sep">/</span>7 дней</span>
+    </div>
+  </section>
+
+  <!-- Branch status strip -->
+  <section class="section section--tight container" aria-label="Сервисные центры в Риге">
+    <div class="strip">
+      <div class="strip__cell">
+        <p class="branch-head"><span class="tech-n">01</span><span class="h3">T/C Domina Shopping</span><span class="tech">{{t:service_centre}}</span><span class="tech">56.9664° N · 24.1660° E</span></p>
+        <p class="status"><i class="status__dot" data-status-dot="domina"></i><span data-status="domina" data-open-until="{{t:open_until}}" data-closed="{{t:closed_opens}}" data-tomorrow="{{t:tomorrow}}">10:00–21:00</span></p>
+        <p class="strip__row"><a class="phone" href="tel:+37123370088">+371 23370088</a><span class="small muted">Ieriķu iela 3, Rīga, LV-1084</span></p>
+        <p class="branch__links"><a class="link link--quiet" href="tel:+37123370088">{{t:call}}</a><a class="link link--quiet" href="https://wa.me/37123370088" rel="noopener" target="_blank">WhatsApp</a><a class="link link--quiet" href="https://waze.com/ul?q=T%2FC%20Domina%20Shopping%2C%20Ieri%C4%B7u%20iela%203%2C%20R%C4%ABga%2C%20LV-1084&navigate=yes" rel="noopener" target="_blank">Waze</a><a class="link link--quiet" href="https://www.google.com/maps/search/?api=1&query=iLab+Domina&query_place_id=ChIJPdbptEPP7kYRsN9Te_ffHcg" rel="noopener" target="_blank">Google Maps</a><button class="link link--quiet" type="button" data-open="contact" data-branch="domina">{{t:hours}}</button></p>
+      </div>
+      <div class="strip__cell">
+        <p class="branch-head"><span class="tech-n">02</span><span class="h3">T/C Spice Life</span><span class="tech">{{t:service_centre}}</span><span class="tech">56.9313° N · 24.0393° E</span></p>
+        <p class="status"><i class="status__dot" data-status-dot="spice"></i><span data-status="spice" data-open-until="{{t:open_until}}" data-closed="{{t:closed_opens}}" data-tomorrow="{{t:tomorrow}}">10:00–21:00</span></p>
+        <p class="strip__row"><a class="phone" href="tel:+37120887787">+371 20887787</a><span class="small muted">Jaunmoku iela 13, Rīga, LV-1046</span></p>
+        <p class="branch__links"><a class="link link--quiet" href="tel:+37120887787">{{t:call}}</a><a class="link link--quiet" href="https://wa.me/37120887787" rel="noopener" target="_blank">WhatsApp</a><a class="link link--quiet" href="https://waze.com/ul?q=T%2FC%20Spice%20Life%2C%20Jaunmoku%20iela%2013%2C%20R%C4%ABga%2C%20LV-1046&navigate=yes" rel="noopener" target="_blank">Waze</a><a class="link link--quiet" href="https://www.google.com/maps/search/?api=1&query=iLab+Spice&query_place_id=ChIJ-44HHgDR7kYRDtqN_4qtGn0" rel="noopener" target="_blank">Google Maps</a><button class="link link--quiet" type="button" data-open="contact" data-branch="spice">{{t:hours}}</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section container" id="pakalpojumi">
+    <div class="section-head">
+      <h2 class="h2">Наши услуги</h2>
+      <p class="lead">Экраны, аккумуляторы, разъёмы зарядки, материнские платы. Apple, Android, компьютеры и Dyson. Цену согласуем до начала работ.</p>
+    </div>
+    <div class="ladder">
+      <article class="ladder__row">
+        <div class="ladder__title"><h3 class="h2"><a class="link" href="{{root}}iphone-remonts.html">Ремонт устройств Apple</a></h3><p class="small faint">iPhone · iPad · MacBook · iMac · Mac Pro</p></div>
+        <div>
+          <p class="ladder__text">Сервис Apple в Риге - ремонт iPhone, ремонт iPad и ремонт MacBook. Выполняем замену экрана и аккумулятора, ремонт разъёма зарядки и диагностику в тот же день (в зависимости от модели). Используем качественные детали и предоставляем гарантию до 1 года.</p>
+          <p class="ladder__links" style="margin-top:16px"><a href="{{root}}iphone-remonts.html">Ремонт iPhone</a><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/plansetdatoru-remonts/ipad">Ремонт iPad</a><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/macbook">Ремонт MacBook</a><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/imac">Ремонт iMac</a><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/datoru-remonts/mac-pro">Ремонт Mac Pro</a></p>
+        </div>
+        <div class="photo ladder__img" data-scan="x"><img src="{{root}}assets/img/home-services-apple.webp" alt="iPhone и MacBook на сервисном столе" loading="lazy" width="1024" height="1024"></div>
+      </article>
+      <article class="ladder__row">
+        <div class="ladder__title"><h3 class="h2"><a class="link" href="{{root}}iphone-remonts.html" data-template-of="/telefonu-remonts">Android - ремонт телефонов и планшетов</a></h3><p class="small faint">Samsung · Xiaomi · Huawei · OnePlus · Sony</p></div>
+        <div>
+          <p class="ladder__text">Обслуживаем устройства Samsung, Xiaomi и Huawei в Риге. Выполняем замену экрана, замену аккумулятора и ремонт разъёма зарядки в тот же день (в зависимости от модели), с гарантией до 1 года.</p>
+          <p class="ladder__links" style="margin-top:16px"><a href="{{root}}telefonu-remonts-samsung.html">Ремонт телефонов Samsung</a><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/telefonu-remonts/xiaomi">Ремонт телефонов Xiaomi</a><a href="{{root}}telefonu-remonts-samsung.html" data-template-of="/telefonu-remonts/huawei">Ремонт телефонов Huawei</a><a href="{{root}}iphone-remonts.html" data-template-of="/telefonu-remonts">Смотреть все бренды</a></p>
+        </div>
+        <div class="photo ladder__img" data-scan="x"><img src="{{root}}assets/img/home-services-android.webp" alt="Android-телефон со снятым экраном" loading="lazy" width="1024" height="1024"></div>
+      </article>
+      <article class="ladder__row">
+        <div class="ladder__title"><h3 class="h2"><a class="link" href="{{root}}iphone-remonts.html" data-template-of="/datoru-remonts">Ремонт компьютеров</a></h3><p class="small faint">Ноутбуки и настольные компьютеры · MacBook · Lenovo · HP · Asus · Dell</p></div>
+        <div>
+          <p class="ladder__text">Ремонт компьютеров в Риге - ноутбуки и настольные компьютеры. Выполняем замену клавиатуры и экрана, замену аккумулятора, чистку системы охлаждения/замену термопасты, установку SSD и переустановку ОС. Также обслуживаем MacBook, iMac и Mac Pro. В тот же день (в зависимости от модели) и с гарантией до 1 года.</p>
+          <p class="ladder__links" style="margin-top:16px"><a href="{{root}}iphone-remonts.html" data-template-of="/datoru-remonts">Смотреть ремонт компьютеров</a></p>
+        </div>
+        <div class="photo ladder__img" data-scan="x"><img src="{{root}}assets/img/home-services-laptop.webp" alt="Ноутбук с открытым корпусом" loading="lazy" width="1024" height="1024"></div>
+      </article>
+      <article class="ladder__row">
+        <div class="ladder__title"><h3 class="h2"><a class="link" href="{{root}}dyson-remonts.html">Ремонт Dyson</a></h3><p class="small faint">Пылесосы · фены · вентиляторы</p></div>
+        <div>
+          <p class="ladder__text">Ремонт Dyson в Риге - диагностика, замена фильтров и аккумуляторов, ремонт мотора и электроники, устранение проблем с зарядкой и всасыванием, полная чистка после окончания гарантии. Используем качественные детали и предоставляем гарантию до 1 года.</p>
+          <p class="ladder__links" style="margin-top:16px"><a href="{{root}}dyson-remonts.html">Смотреть ремонт Dyson</a></p>
+        </div>
+        <div class="photo ladder__img" data-scan="x"><img src="{{root}}assets/img/home-services-dyson.webp" alt="Пылесос Dyson" loading="lazy" width="1024" height="1024"></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section container" id="process">
+    <div class="process-layout">
+      <div>
+        <h2 class="h2">Как проходит ремонт</h2>
+        <p class="lead">Пять шагов. Цену и срок вы узнаете до начала работ.</p>
+      </div>
+      <div class="process" data-process>
+      <div class="process__track"><i class="process__seg"></i></div>
+      <ol class="process__steps">
+        <li class="process__step"><span class="process__n">1</span><h3 class="h3">Принесите устройство в сервис</h3><p>Принесите устройство в сервис iLab в удобный для вас филиал.</p></li>
+        <li class="process__step"><span class="process__n">2</span><h3 class="h3">Проводим диагностику</h3><p>Определяем неисправность и предлагаем подходящее решение.</p></li>
+        <li class="process__step"><span class="process__n">3</span><h3 class="h3">Согласовываем цену и срок</h3><p>До начала ремонта согласовываем стоимость и сроки выполнения.</p></li>
+        <li class="process__step"><span class="process__n">4</span><h3 class="h3">Выполняем ремонт</h3><p>Ремонтируем устройство и проверяем его работу после ремонта.</p></li>
+        <li class="process__step"><span class="process__n">5</span><h3 class="h3">Получите устройство с гарантией</h3><p>Вы получаете отремонтированное устройство с гарантией и рекомендациями по дальнейшему использованию.</p></li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section container" id="reviews">
+    <div class="section-head">
+      <h2 class="h2">1199 отзывов в Google</h2>
+      <p class="lead">Два филиала, два рейтинга. Отзывы не редактируются.</p>
+    </div>
+    <div class="reviews">
+      <div class="reviews__branch">
+        <p class="branch-head"><span class="tech-n">01</span><span class="h3">T/C Domina Shopping</span><span class="tech">{{t:service_centre}}</span><span class="tech">{{t:riga}}<span class="sep">·</span>56.9664° N 24.1660° E</span></p>
+        <div class="rating-head">
+          <p class="num"><span data-count="4.9">4.9</span><small>/ 5</small></p>
+          <div class="rating-head__side"><span class="stars stars--lg" role="img" aria-label="5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span><span class="num" data-count="826">826</span> отзывов</span><span class="faint">Отзывы Google</span></div>
+        </div>
+        <div data-reviews="domina" data-rows></div>
+        <a class="reviews__more tech" href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJPdbptEPP7kYRsN9Te_ffHcg" rel="noopener" target="_blank"><svg viewBox="0 0 32 10" aria-hidden="true"><path d="M0 5h30M26 1l4 4-4 4"/></svg>Смотреть все 826 отзывов</a>
+      </div>
+      <div class="reviews__branch">
+        <p class="branch-head"><span class="tech-n">02</span><span class="h3">T/C Spice Life</span><span class="tech">{{t:service_centre}}</span><span class="tech">{{t:riga}}<span class="sep">·</span>56.9313° N 24.0393° E</span></p>
+        <div class="rating-head">
+          <p class="num"><span data-count="5.0">5.0</span><small>/ 5</small></p>
+          <div class="rating-head__side"><span class="stars stars--lg" role="img" aria-label="5 из 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.4 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span><span class="num" data-count="373">373</span> отзыва</span><span class="faint">Отзывы Google</span></div>
+        </div>
+        <div data-reviews="spice" data-rows></div>
+        <a class="reviews__more tech" href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJ-44HHgDR7kYRDtqN_4qtGn0" rel="noopener" target="_blank"><svg viewBox="0 0 32 10" aria-hidden="true"><path d="M0 5h30M26 1l4 4-4 4"/></svg>Смотреть все 373 отзыва</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section container">
+    <div class="why">
+      <div>
+        <h2 class="h2">Почему iLab?</h2>
+        <p class="lead muted" style="margin-top:16px">Надёжный ремонт, прозрачные цены и быстрые сроки от сертифицированных специалистов.</p>
+      </div>
+      <div class="facts" data-stagger>
+        <div class="fact"><span class="num">1 год</span><span class="small">Гарантия до 1 года на работу и детали</span></div>
+        <div class="fact"><span class="num">Сегодня</span><span class="small">Быстрый ремонт - частые работы выполняем в тот же день</span></div>
+        <div class="fact"><span class="num">0 €</span><span class="small">Бесплатная диагностика перед любой работой</span></div>
+        <div class="fact"><span class="num">2013</span><span class="small">Сертифицированные мастера, работаем с 2013 года</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="section container" id="locations">
+    <div class="section-head">
+      <h2 class="h2">Сервисные центры в Риге</h2>
+      <p class="lead">Оба филиала в торговых центрах, с бесплатной парковкой. Открываемся в 10:00, закрываемся в 21:00.</p>
+    </div>
+    <div class="locations">
+      <div class="map" data-scan="x">
+        <img src="{{root}}assets/img/map-riga-branches.png" alt="Карта Риги с двумя филиалами iLab" loading="lazy" width="3000" height="3000">
+        <button class="map__pin" type="button" style="--x:68%;--y:41%" data-open="contact" data-branch="domina"><i></i><span>Domina Shopping</span></button>
+        <button class="map__pin" type="button" style="--x:30%;--y:59%" data-open="contact" data-branch="spice"><i></i><span>Spice Life</span></button>
+      </div>
+      <div>
+        <!-- @include partials/branch-domina.html n=01 -->
+        <!-- @include partials/branch-spice.html n=02 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container" id="buj">
+    <div class="section-head">
+      <h2 class="h2">Часто задаваемые вопросы</h2>
+      <p class="lead"><a class="link" href="{{root}}buj.html">Все 74 вопроса</a></p>
+    </div>
+    <div class="faq">
+      <details class="acc acc--faq" open><summary>Как быстро вы можете отремонтировать устройство в Риге?<i class="plus"></i></summary><div class="acc__body"><p>Популярные ремонты часто выполняем в тот же или на следующий день, если деталь есть в наличии. Вы можете посмотреть основные категории: <a href="{{root}}iphone-remonts.html">ремонт iPhone</a>, <a href="{{root}}iphone-remonts.html" data-template-of="/telefonu-remonts">ремонт телефонов</a>, <a href="{{root}}iphone-remonts.html" data-template-of="/plansetdatoru-remonts">ремонт планшетов</a>, <a href="{{root}}iphone-remonts.html" data-template-of="/datoru-remonts">ремонт компьютеров</a> и <a href="{{root}}dyson-remonts.html">ремонт Dyson</a>.</p></div></details>
+      <details class="acc acc--faq"><summary>Сколько стоит ремонт?<i class="plus"></i></summary><div class="acc__body"><p>Стоимость ремонта зависит от модели устройства, неисправности и объёма работ. Точную цену согласовываем после диагностики. Цены можно посмотреть в <a href="{{root}}cenas.html">прайс-листе</a> или в нужной категории, например <a href="{{root}}iphone-remonts.html">ремонт iPhone</a>.</p></div></details>
+      <details class="acc acc--faq"><summary>Есть ли гарантия на выполненные работы?<i class="plus"></i></summary><div class="acc__body"><p>Да, мы предоставляем гарантию до 1 года на выполненные работы и установленные детали, в зависимости от работы и детали. Условия гарантии объясняем до начала ремонта.</p></div></details>
+      <details class="acc acc--faq"><summary>Нужно ли записываться заранее или можно принести устройство сразу?<i class="plus"></i></summary><div class="acc__body"><p>В большинстве случаев устройство можно принести без записи. Сервис iLab в Риге находится в Domina Shopping и Spice Life. Подробнее - в разделе <a href="{{root}}kontakti.html">Контакты</a>.</p></div></details>
+      <details class="acc acc--faq"><summary>Где в Риге находится ваш сервис?<i class="plus"></i></summary><div class="acc__body"><p>Наш сервис находится в Риге в двух местах - Domina Shopping и Spice Life. Адреса, телефоны и часы работы указаны в разделе <a href="{{root}}kontakti.html">Контакты</a>.</p></div></details>
+      <details class="acc acc--faq"><summary>Будут ли данные в безопасности во время ремонта?<i class="plus"></i></summary><div class="acc__body"><p>При типовых ремонтах пользовательские данные обычно не затрагиваются, но для безопасности мы всегда рекомендуем заранее сделать резервную копию. Это особенно важно перед <a href="{{root}}iphone-remonts-ekrana-maina.html">заменой экрана</a>, заменой батареи или диагностикой компьютера.</p></div></details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band counter">
+    <div class="container grid">
+      <h2 class="h2">Нужна помощь? Отвечаем в тот же день.</h2>
+      <p class="actions"><button class="btn btn-primary" type="button" data-open="contact">Связаться с техником</button><a class="link" href="{{root}}pieraksties-remontam.html">Записаться на ремонт</a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- @include partials/footer.html -->
+<!-- @include partials/bottombar.html -->
+<!-- @include partials/panels.html -->
+<!-- @include partials/cookie.html -->
+<!-- @include partials/scripts.html -->

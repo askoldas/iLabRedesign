@@ -1,0 +1,2 @@
+/* iphone-remonts-ekrana-maina: six quick facts sit in three columns. */
+@media (min-width: 768px) { .page-hero .quickfacts { grid-template-columns: repeat(3, 1fr); } }

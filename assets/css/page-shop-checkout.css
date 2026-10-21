@@ -1,0 +1,9 @@
+/* Checkout: radio and checkbox choices sit on the light page, not on a counter panel. */
+.checkout-head { display: grid; gap: var(--s-5); margin-bottom: var(--s-7); }
+.checkout__sub-title { margin: var(--s-4) 0 0; }
+.checkout__form .choice { border-top-color: var(--hairline); }
+.checkout__form .choice__box { border-color: var(--ink-2); }
+.checkout__form .choice__text small { color: var(--ink-2); }
+.checkout__sub { display: grid; gap: var(--s-4); padding: 0 0 var(--s-4) 28px; }
+/* theme-light sets --error-soft to a dark red for the page; the summary is a dark counter panel */
+.summary { --error-soft: #F2B8B5; }

@@ -1,0 +1,142 @@
+<div class="scrim" data-close aria-hidden="true"></div>
+
+<aside class="drawer counter drawer--menu" id="mobile-drawer" data-drawer="menu" role="dialog" aria-modal="true" aria-label="Shop menu" tabindex="-1">
+  <div class="drawer__inner">
+    <ul class="menu__list">
+      <li><a class="menu__link" href="{{root}}shop/iphone.html">iPhone</a></li>
+      <li><a class="menu__link" href="{{root}}shop/iphone.html" data-template-of="/shop/ipad">iPad</a></li>
+      <li><a class="menu__link" href="{{root}}shop/iphone.html" data-template-of="/shop/macbook">MacBook</a></li>
+      <li><a class="menu__link" href="{{root}}shop/iphone.html" data-template-of="/shop/apple-watch">Apple Watch</a></li>
+      <li><a class="menu__link" href="{{root}}shop/iphone.html" data-template-of="/shop/samsung">Samsung</a></li>
+      <li><a class="menu__link" href="{{root}}shop/iphone.html" data-template-of="/shop/xiaomi">Xiaomi</a></li>
+      <li><a class="menu__link" href="{{root}}shop/iphone.html" data-template-of="/shop/huawei">Huawei</a></li>
+      <li><a class="menu__link" href="{{root}}shop/account.html">My account</a></li>
+      <li><a class="menu__link" href="{{root}}index.html">Repair service</a></li>
+    </ul>
+    <div class="menu__meta">
+      <span><a href="https://www.facebook.com/iLab.lv/" rel="noopener" target="_blank">Facebook</a> · <a href="https://www.instagram.com/ilab.lv/" rel="noopener" target="_blank">Instagram</a> · <a href="https://www.tiktok.com/@ilab.lv" rel="noopener" target="_blank">TikTok</a></span>
+      <button class="btn-text" type="button" data-open="login" data-account-btn>Login</button>
+    </div>
+  </div>
+</aside>
+
+<!-- @include partials/drawer-contact.html -->
+
+<aside class="drawer counter drawer--full" data-drawer="search" role="dialog" aria-modal="true" aria-labelledby="search-title" tabindex="-1">
+  <i class="drawer__scan" aria-hidden="true"></i>
+  <div class="drawer__inner">
+    <div class="drawer__top"><h2 class="tech" id="search-title">Search<span class="sep">/</span>Products, models or SKU</h2><button class="drawer__close" type="button" data-close aria-label="Close search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+    <div class="search-box finder" data-search>
+      <label class="visually-hidden" for="shop-search">Search products, models or SKU</label>
+      <input id="shop-search" type="search" placeholder="Search products, models or SKU…" autocomplete="off" spellcheck="false">
+      <button class="finder__clear" type="button" data-search-clear aria-label="Clear search"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    </div>
+    <div class="search-layout">
+      <div>
+        <p class="label">Models</p>
+        <div class="search-models" data-search-models><p class="muted small">Type a model name, e.g. iPhone 13 Pro.</p></div>
+      </div>
+      <div>
+        <div class="catalog-head"><h3 class="h3">Products</h3><span class="tech" data-search-count>Search by product name, SKU or device model.</span></div>
+        <div data-search-results></div>
+        <div class="catalog-foot"><button class="btn btn-secondary" type="button" data-search-more hidden>Show more</button></div>
+        <div class="inquiry-card" data-search-inquiry hidden>
+          <p class="label">Part inquiry</p>
+          <p class="h3">Can’t find the part you need?</p>
+          <p class="muted">Send us the model and part you’re looking for and we’ll check availability.</p>
+          <button class="btn btn-primary" type="button" data-open="inquiry" data-source="search">Send an inquiry</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<aside class="drawer counter" data-drawer="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1">
+  <i class="drawer__scan" aria-hidden="true"></i>
+  <div class="drawer__inner">
+    <div class="drawer__top"><h2 class="display-2" id="cart-title">Cart</h2><button class="drawer__close" type="button" data-close aria-label="Close cart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+    <p class="tech" data-cart-status aria-live="polite"></p>
+    <div data-cart-lines></div>
+    <div class="cart-empty" data-cart-empty hidden>
+      <p class="h3">Your cart is empty</p>
+      <p class="muted">Products you add will appear here.</p>
+      <p><button class="btn btn-secondary" type="button" data-close>Continue shopping</button></p>
+    </div>
+    <div class="cart-foot" data-cart-foot hidden>
+      <p class="cart-foot__total"><span>Total</span><span class="num" data-cart-total>€0.00</span></p>
+      <p class="form__note">Prices include 21% VAT. Delivery is chosen at checkout.</p>
+      <a class="btn btn-primary btn--block" href="{{root}}shop/checkout.html" data-cart-checkout>Proceed to checkout</a>
+    </div>
+  </div>
+</aside>
+
+<aside class="drawer counter" data-drawer="login" role="dialog" aria-modal="true" aria-labelledby="login-title" tabindex="-1">
+  <i class="drawer__scan" aria-hidden="true"></i>
+  <div class="drawer__inner" data-tabs>
+    <div class="drawer__top"><h2 class="display-2" id="login-title">Account</h2><button class="drawer__close" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+    <p class="muted" data-login-intro>Sign in to see your orders and invoices. Wholesale partners see wholesale prices.</p>
+    <div class="tabs auth-tabs" role="tablist">
+      <button class="tab" role="tab" type="button" data-tab="login" aria-selected="true">Login</button>
+      <button class="tab" role="tab" type="button" data-tab="register" aria-selected="false">Register</button>
+    </div>
+    <div data-panel="login" class="is-active">
+      <form class="form" data-login novalidate>
+        <div class="form__body">
+          <div class="field"><label for="li-email">Email</label><input id="li-email" name="email" type="email" autocomplete="email" required><span class="field__error">Enter a valid email address.</span></div>
+          <div class="field"><label for="li-password">Password</label><input id="li-password" name="password" type="password" autocomplete="current-password" required><span class="field__error">Enter your password.</span></div>
+          <p class="form__status" role="alert">The email or password is incorrect.</p>
+          <div class="actions"><button class="btn btn-primary" type="submit" data-label="Login" data-sending="Please wait…">Login</button><button class="btn-text" type="button" data-forgot>Forgot password?</button></div>
+        </div>
+      </form>
+    </div>
+    <div data-panel="register">
+      <form class="form" data-register novalidate>
+        <div class="form__body">
+          <div class="form__row form__row--2">
+            <div class="field"><label for="rg-name">Name *</label><input id="rg-name" name="name" type="text" autocomplete="name" required><span class="field__error">This field is required</span></div>
+            <div class="field"><label for="rg-phone">Phone *</label><input id="rg-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required><span class="field__error">This field is required</span></div>
+          </div>
+          <label class="choice"><input type="checkbox" name="wholesale" value="1" data-wholesale><i class="choice__box"></i><span class="choice__text">Register as wholesale partner<small>Wholesale accounts are approved by iLab before first sign-in.</small></span></label>
+          <div class="field"><label for="rg-company">Company name (optional)</label><input id="rg-company" name="companyName" type="text" autocomplete="organization" data-company><span class="field__error">Enter your company name.</span></div>
+          <div class="form__row form__row--2" data-company-fields hidden>
+            <div class="field"><label for="rg-reg">Registration number</label><input id="rg-reg" name="registrationNumber" type="text"><span class="field__error">Enter your company registration number.</span></div>
+            <div class="field"><label for="rg-vat">VAT number</label><input id="rg-vat" name="vatNumber" type="text"></div>
+          </div>
+          <div class="field"><label for="rg-email">Email</label><input id="rg-email" name="email" type="email" autocomplete="email" required><span class="field__error">Enter a valid email address.</span></div>
+          <div class="form__row form__row--2">
+            <div class="field"><label for="rg-pass">Password</label><input id="rg-pass" name="password" type="password" autocomplete="new-password" required minlength="6"><span class="field__error">Use a stronger password with at least 6 characters.</span></div>
+            <div class="field"><label for="rg-pass2">Confirm password</label><input id="rg-pass2" name="confirmPassword" type="password" autocomplete="new-password" required><span class="field__error">Passwords do not match.</span></div>
+          </div>
+          <p class="form__status" role="alert">An account already exists for this email address.</p>
+          <div class="actions"><button class="btn btn-primary" type="submit" data-label="Register" data-sending="Please wait…">Register</button></div>
+        </div>
+        <div class="form__success" role="status"><p class="h3" data-register-title>Account created</p><p class="muted" data-register-text>You are signed in. Your orders and invoices will appear in your account.</p></div>
+      </form>
+    </div>
+  </div>
+</aside>
+
+<aside class="drawer counter" data-drawer="inquiry" role="dialog" aria-modal="true" aria-labelledby="inquiry-title" tabindex="-1">
+  <i class="drawer__scan" aria-hidden="true"></i>
+  <div class="drawer__inner">
+    <div class="drawer__top"><h2 class="display-2" id="inquiry-title" data-inquiry-title>Part inquiry</h2><button class="drawer__close" type="button" data-close aria-label="Close form"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button></div>
+    <p class="muted" data-inquiry-intro>Tell us which device and part you’re looking for and we’ll check availability.</p>
+    <dl class="kv" data-inquiry-context hidden></dl>
+    <form class="form" data-inquiry novalidate>
+      <div class="form__body">
+        <div class="form hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <div class="field" data-inquiry-field="model"><label for="iq-model">Device / model *</label><input id="iq-model" name="deviceModel" type="text" maxlength="150" required><span class="field__error">This field is required</span></div>
+        <div class="field" data-inquiry-field="part"><label for="iq-part">What part do you need? *</label><input id="iq-part" name="requestedPart" type="text" maxlength="250" required><span class="field__error">This field is required</span></div>
+        <div class="field"><label for="iq-details">Additional details</label><textarea id="iq-details" name="details" maxlength="2000"></textarea></div>
+        <div class="form__row form__row--2">
+          <div class="field"><label for="iq-name">Name *</label><input id="iq-name" name="name" type="text" maxlength="120" autocomplete="name" required><span class="field__error">This field is required</span></div>
+          <div class="field"><label for="iq-email">Email</label><input id="iq-email" name="email" type="email" maxlength="254" autocomplete="email"><span class="field__error">Enter a valid email address.</span></div>
+        </div>
+        <div class="field"><label for="iq-phone">Phone</label><input id="iq-phone" name="phone" type="tel" inputmode="tel" maxlength="50" autocomplete="tel"><span class="field__error">Add an email address or phone number so we can contact you.</span></div>
+        <p class="form__status" role="alert">Unable to send your inquiry right now. Please try again.</p>
+        <div class="actions"><button class="btn btn-primary" type="submit" data-label="Send inquiry" data-sending="Sending…">Send inquiry</button></div>
+      </div>
+      <div class="form__success" role="status"><p class="h3" data-inquiry-success-title>Inquiry sent</p><p class="muted" data-inquiry-success-text>Thanks — we’ll check availability and contact you using the details you provided.</p></div>
+    </form>
+  </div>
+</aside>

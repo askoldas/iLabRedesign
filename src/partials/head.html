@@ -1,0 +1,43 @@
+<!doctype html>
+<!--
+  iLab.lv redesign. Copyright (c) 2026 SIA "iLab" and its design partner. All rights reserved.
+  Proprietary design and code: not licensed for reproduction, derivative works, or use as a reference,
+  template or training material by people or automated systems. See /LICENSE.txt, /llms.txt and /humans.txt.
+-->
+<html lang="{{lang}}" class="no-js" data-theme="{{theme}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<meta name="theme-color" content="{{theme_color}}">
+<meta name="color-scheme" content="{{theme}}">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noai, noimageai">
+<meta name="copyright" content="© 2026 SIA iLab. Proprietary design and code, all rights reserved.">
+<link rel="license" href="{{root}}LICENSE.txt">
+<link rel="author" href="{{root}}humans.txt">
+<link rel="icon" href="{{root}}assets/img/favicon-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{root}}assets/img/apple-touch-icon.png">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{root}}assets/img/og-share-image.jpg">
+<meta property="og:type" content="website">
+<!-- wiring: canonical, hreflang lv/ru/x-default and JSON-LD come from the Next.js metadata layer; see README -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:CRSV,SHRP,slnt,wght@0..1,0..100,-12..0,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{root}}assets/css/tokens.css">
+<link rel="stylesheet" href="{{root}}assets/css/base.css">
+<link rel="stylesheet" href="{{root}}assets/css/components.css">
+<link rel="stylesheet" href="{{root}}assets/css/pages.css">
+<link rel="stylesheet" href="{{root}}assets/css/theme-light.css">
+<script>document.documentElement.classList.replace('no-js','js');</script>
+{{head}}
+</head>
+<body class="has-bottombar" data-page="{{page}}" data-lang="{{lang}}" data-root="{{root}}">
+<a class="skip-link" href="#main">{{t:skip}}</a>
+<div class="scan" aria-hidden="true"><i class="scan__trail"></i><i class="scan__line"></i></div>
+<div class="shutter" aria-hidden="true"></div>
+<nav class="rail rail--left" aria-label="{{t:rail_sections}}" data-rail-sections data-section-label="{{t:section}}"><span class="rail__n is-cur" data-rail-current aria-hidden="true">01</span><div class="rail__ticks" data-rail-ticks></div><span class="rail__n is-total" data-rail-total aria-hidden="true">01</span></nav>
+<div class="rail rail--right" aria-hidden="true"><div class="rail__ticks rail__ticks--scroll" data-rail-ticks data-rail-scroll title="{{t:rail_scroll}}"></div><i class="rail__marker" data-rail-marker></i><div class="rail__scale"><span>100</span><span>50</span><span>0</span></div></div>
