@@ -38,6 +38,25 @@
   renderStatus();
   setInterval(renderStatus, 60000);
 
+  /* ---------- Homepage branch selector and map pins ---------- */
+  const locationSwitcher = $('[data-location-switcher]');
+  if (locationSwitcher) {
+    const chooseLocation = (branch) => {
+      if (!['domina', 'spice'].includes(branch)) return;
+      $$('[data-location-select]').forEach((control) => {
+        const selected = control.dataset.locationSelect === branch;
+        control.classList.toggle('is-selected', selected);
+        control.setAttribute('aria-pressed', String(selected));
+      });
+      $$('[data-location-panel]', locationSwitcher).forEach((panel) => {
+        panel.hidden = panel.dataset.locationPanel !== branch;
+      });
+    };
+    $$('[data-location-select]').forEach((control) => {
+      control.addEventListener('click', () => chooseLocation(control.dataset.locationSelect));
+    });
+  }
+
   /* ---------- Header: current page, hide on scroll down ---------- */
   const header = $('[data-header]');
   const page = document.body.dataset.page;
