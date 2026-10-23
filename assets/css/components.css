@@ -316,7 +316,7 @@ body:not(.counter) .choice__box { border-color: var(--ink-2); }
 @media (min-width: 768px) { .site-footer__inner { padding-inline: 32px; } }
 @media (min-width: 1280px) { .site-footer__inner { padding-inline: calc(var(--margin) + var(--s-5)); } }
 .footer__masthead { display: grid; justify-items: start; gap: var(--s-4); padding-bottom: var(--s-8); }
-.footer__masthead .logo { display: block; width: min(42vw, 520px); color: var(--counter-ink); }
+.footer__masthead .logo { display: block; width: min(36vw, 440px); color: var(--counter-ink); }
 .footer__masthead .logo svg { width: 100%; height: auto; max-height: none; }
 .footer__masthead p { max-width: 36ch; color: var(--counter-ink-2); text-align: left; font-size: var(--fs-small); }
 .site-footer .grid { row-gap: var(--s-6); }
@@ -333,7 +333,7 @@ body:not(.counter) .choice__box { border-color: var(--ink-2); }
 .footer__bottom .social-links svg { width: 18px; height: 18px; }
 .footer__bottom .social-links span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 1023px) { .site-footer { padding-bottom: calc(var(--s-7) + var(--bottombar-h)); } }
-@media (max-width: 639px) { .footer__masthead .logo { width: min(78vw, 360px); } .footer__bottom { grid-template-columns: 1fr; } .footer__rights { text-align: center; justify-self: center; } .footer__bottom .social-links { justify-self: center; } .footer__bottom > [aria-hidden] { display: none; } }
+@media (max-width: 639px) { .footer__masthead .logo { width: min(68vw, 300px); } .footer__bottom { grid-template-columns: 1fr; } .footer__rights { text-align: center; justify-self: center; } .footer__bottom .social-links { justify-self: center; } .footer__bottom > [aria-hidden] { display: none; } }
 
 /* ---------- Rails (≥1280): section counter left, scroll ruler right ---------- */
 .rail { display: none; position: fixed; top: var(--header-h); bottom: 0; width: var(--rail); z-index: 40; pointer-events: none; font-family: var(--mono); font-size: var(--fs-tech); letter-spacing: 0.14em; color: var(--ink-3); }
