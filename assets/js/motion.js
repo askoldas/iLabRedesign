@@ -123,7 +123,7 @@
       setActive(0);
       mm.add('(min-width: 1024px)', () => {
         const st = ScrollTrigger.create({
-          trigger: proc, start: 'top 20%', end: '+=120%', pin: true, scrub: 0.6,
+          trigger: proc, start: 'top 20%', end: '+=720', pin: true, scrub: 0.6,
           onUpdate: (self) => {
             gsap.set(seg, { y: (track.offsetHeight - 48) * self.progress });
             setActive(self.progress);
@@ -154,13 +154,10 @@
   api.scrollToY = scrollToY;
   function rails() {
     document.querySelectorAll('[data-rail-ticks]').forEach((t) => { for (let i = 0; i < 41; i++) { const tick = document.createElement('i'); tick.style.top = `${(i / 40) * 100}%`; t.appendChild(tick); } });
-    const cur = document.querySelector('[data-rail-current]');
-    const total = document.querySelector('[data-rail-total]');
     const marker = document.querySelector('[data-rail-marker]');
     const left = document.querySelector('[data-rail-sections]');
     const sections = $$('main > section');
     const pad = (n) => String(n).padStart(2, '0');
-    if (total) total.textContent = pad(sections.length);
     const headerH = () => (document.querySelector('.site-header')?.offsetHeight || 72);
     // left rail: one button per section along the tick track
     const btns = [];
@@ -181,7 +178,6 @@
     }
     sections.forEach((sec, i) => ScrollTrigger.create({ trigger: sec, start: `top ${headerH() + 1}px`, end: `bottom ${headerH() + 1}px`, onToggle: (self) => {
       if (!self.isActive) return;
-      if (cur) cur.textContent = pad(i + 1);
       btns.forEach((b, k) => b.classList.toggle('is-cur', k === i));
     } }));
     // right rail: marker follows scroll progress; clicking the ruler scrolls there

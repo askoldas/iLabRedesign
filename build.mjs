@@ -2,8 +2,9 @@
 // Usage: node build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = path.dirname(new URL(import.meta.url).pathname);
+const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(ROOT, 'src');
 const PAGES = path.join(SRC, 'pages');
 const DIST = path.join(ROOT, 'dist');
