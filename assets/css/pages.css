@@ -166,6 +166,19 @@
 
 /* ----- Homepage final art direction: the scan line as organizing datum ----- */
 body[data-page="home"] .hero { border-bottom: 1px solid var(--hairline); }
+/* Deliberate homepage-only exception: restrained metal title treatment requested from the review reference. */
+body[data-page="home"] .hero .display-1,
+body[data-page="home"] .reviews__intro .h2 {
+  color: var(--ink);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f2f3 38%, #c8cdd1 54%, #f5f6f7 76%, #dce1e4 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (forced-colors: active) {
+  body[data-page="home"] .hero .display-1,
+  body[data-page="home"] .reviews__intro .h2 { background: none; -webkit-text-fill-color: currentColor; }
+}
 body[data-page="home"] .hero__copy { align-content: center; gap: 28px; }
 body[data-page="home"] .hero__grid,
 body[data-page="home"] .hero__copy,
