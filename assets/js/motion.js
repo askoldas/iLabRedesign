@@ -123,7 +123,7 @@
       setActive(0);
       mm.add('(min-width: 1024px)', () => {
         const st = ScrollTrigger.create({
-          trigger: proc, start: 'top 20%', end: '+=120%', pin: true, scrub: 0.6,
+          trigger: proc, start: 'top 20%', end: '+=720', pin: true, scrub: 0.6,
           onUpdate: (self) => {
             gsap.set(seg, { y: (track.offsetHeight - 48) * self.progress });
             setActive(self.progress);
