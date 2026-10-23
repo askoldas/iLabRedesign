@@ -21,16 +21,14 @@
 @keyframes btn-trace { to { stroke-dashoffset: -100; } }
 .btn-traced:hover, .btn-traced:focus-visible { background: var(--signal); color: var(--on-signal); border-color: var(--signal); }
 .btn-traced:hover .btn-trace, .btn-traced:focus-visible .btn-trace { opacity: 0; }
-/* shop: a toggle switch that flips on and off; hover holds it on */
+/* shop/service state switch: motion answers hover/focus only */
 .btn-shop { position: relative; gap: 12px; background: transparent; color: var(--ink); border-color: var(--hairline); transition: border-color var(--t-fast), color var(--t-fast); }
-.toggle { position: relative; width: 38px; height: 20px; border: 1px solid var(--signal); background: transparent; flex: none; animation: toggle-track 2.6s steps(1, end) infinite; }
-.toggle__knob { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; background: var(--signal); transition: transform 260ms var(--ease-out), background 260ms; animation: toggle-knob 2.6s cubic-bezier(0.16, 1, 0.3, 1) infinite; }
-@keyframes toggle-track { 0%, 62% { background: var(--signal); } 63%, 100% { background: transparent; } }
-@keyframes toggle-knob { 0%, 55% { transform: translateX(18px); background: var(--on-signal); } 65%, 92% { transform: translateX(0); background: var(--signal); } 100% { transform: translateX(18px); background: var(--on-signal); } }
+.toggle { position: relative; width: 38px; height: 20px; border: 1px solid var(--signal); background: transparent; flex: none; transition: background 260ms var(--ease-out); }
+.toggle__knob { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; background: var(--signal); transition: transform 260ms var(--ease-out), background 260ms var(--ease-out); }
 .btn-shop:hover, .btn-shop:focus-visible { color: var(--signal); border-color: var(--signal); }
 .btn-shop:hover .toggle, .btn-shop:focus-visible .toggle { animation: none; background: var(--signal); }
 .btn-shop:hover .toggle__knob, .btn-shop:focus-visible .toggle__knob { animation: none; transform: translateX(18px); background: var(--on-signal); }
-@media (prefers-reduced-motion: reduce) { .btn-trace rect { animation: none; stroke-dasharray: none; opacity: 0.6; } .toggle { animation: none; background: var(--signal); } .toggle__knob { animation: none; transform: translateX(18px); background: var(--on-signal); } }
+@media (prefers-reduced-motion: reduce) { .btn-trace rect { animation: none; stroke-dasharray: none; opacity: 0.6; } .toggle, .toggle__knob { transition: none; } }
 .btn-text, .link { display: inline; height: auto; padding: 0; border: 0; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: currentColor; transition: text-decoration-color var(--t-fast); font-weight: inherit; }
 .btn-text:hover, .link:hover { text-decoration-color: var(--signal); }
 .link--quiet { text-decoration-color: var(--hairline); }
@@ -340,10 +338,8 @@ body:not(.counter) .choice__box { border-color: var(--ink-2); }
 .rail { display: none; position: fixed; top: var(--header-h); bottom: 0; width: var(--rail); z-index: 40; pointer-events: none; font-family: var(--mono); font-size: var(--fs-tech); letter-spacing: 0.14em; color: var(--ink-3); }
 .rail--left { left: 0; border-right: 1px solid var(--hairline); }
 .rail--right { right: 0; border-left: 1px solid var(--hairline); }
-.rail__n { position: absolute; left: 50%; transform: translateX(-50%); }
-.rail--left .rail__n.is-cur { top: 48px; color: var(--signal); }
-.rail--left .rail__n.is-total { bottom: 48px; }
 .rail__ticks { position: absolute; left: 50%; top: 96px; bottom: 96px; width: 1px; background: var(--hairline); }
+.rail--left .rail__ticks { top: 32px; bottom: 32px; }
 .rail__ticks i { position: absolute; left: -3px; width: 7px; height: 1px; background: var(--hairline); }
 .rail__ticks i:nth-child(5n+1) { left: -6px; width: 13px; background: var(--ink-3); }
 .rail__sect { position: absolute; left: 50%; transform: translate(-50%, -50%); pointer-events: auto; cursor: pointer; width: 40px; height: 28px; display: grid; place-items: center; color: var(--ink-3); font: inherit; letter-spacing: inherit; background: var(--paper); transition: color var(--t-fast); }
