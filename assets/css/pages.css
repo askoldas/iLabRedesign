@@ -117,6 +117,12 @@
 .locations .map__pin { min-height: 48px; min-width: 48px; }
 .locations .map__pin.is-selected i { background: var(--signal-2); outline: 1px solid var(--signal); outline-offset: 3px; }
 .location-detail { display: grid; align-content: start; gap: var(--s-5); min-width: 0; }
+.branch__availability { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-4); }
+.branch__availability .status { padding-top: 12px; }
+.branch__availability .hours { flex: 0 0 min(210px, 48%); }
+.branch__availability .hours > summary { min-height: 44px; padding: 11px 0 11px var(--s-4); border-left: 2px solid var(--signal); color: var(--ink); font-size: var(--fs-small); font-weight: 500; text-align: right; }
+.branch__availability .hours > summary:hover, .branch__availability .hours > summary:focus-visible { color: var(--signal); }
+.branch__availability .hours[open] > summary { color: var(--signal); }
 .location-selector { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--hairline); }
 .location-selector__button { min-height: 48px; padding: 9px 12px; text-align: center; font-size: var(--fs-small); color: var(--ink-2); }
 .location-selector__button + .location-selector__button { border-left: 1px solid var(--hairline); }
@@ -125,6 +131,7 @@
 .location-detail .branch { padding-top: 0; }
 .location-convenience { padding-top: var(--s-4); border-top: 1px solid var(--hairline); color: var(--ink-2); }
 @media (max-width: 640px) { .locations .map__pin span { font-size: 11px; padding: 3px 5px; } .locations .map__pin { gap: 4px; } }
+@media (max-width: 420px) { .branch__availability { align-items: stretch; flex-direction: column; } .branch__availability .status { padding-top: 0; } .branch__availability .hours { flex-basis: auto; } .branch__availability .hours > summary { text-align: left; } }
 
 /* ----- Homepage final art direction: the scan line as organizing datum ----- */
 body[data-page="home"] .hero { border-bottom: 1px solid var(--hairline); }
