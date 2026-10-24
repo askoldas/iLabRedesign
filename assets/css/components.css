@@ -40,7 +40,9 @@
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--hairline); height: var(--header-h); }
 /* full-width bar: logo left, nav centred, actions far right */
 .site-header__inner { height: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-5); padding-inline: 20px; }
-.logo + .nav { justify-self: start; border-left: 1px solid var(--hairline); padding-left: var(--s-3); margin-left: calc(-1 * var(--s-2)); }
+.header-brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.header-brand .only-mobile { display: none; }
+.header-brand + .nav { justify-self: start; border-left: 1px solid var(--hairline); padding-left: var(--s-3); margin-left: calc(-1 * var(--s-2)); }
 @media (min-width: 768px) { .site-header__inner { padding-inline: 32px; } }
 @media (min-width: 1280px) { .site-header__inner { padding-inline: 40px; } }
 
@@ -82,7 +84,10 @@
   .header-actions { flex: none; margin-left: auto; gap: 4px; }
   .header-actions .only-mobile { display: inline-flex; }
   .header-actions .icon-btn.only-mobile { display: inline-grid; }
-  .header-actions .header-mode-switch { width: 52px; height: 44px; padding-inline: 6px; }
+  .header-brand .header-mode-switch { display: inline-flex; width: auto; height: 34px; gap: 6px; padding-inline: 7px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .header-mode-switch .toggle { width: 30px; height: 16px; }
+  .header-mode-switch .toggle__knob { width: 10px; height: 10px; }
+  .header-mode-switch:hover .toggle__knob, .header-mode-switch:focus-visible .toggle__knob { transform: translateX(14px); }
   .header-actions .lang.only-mobile { min-width: 40px; justify-content: center; padding-inline: 8px; border-left: 0; }
   .drawer--menu { max-height: 100dvh; overflow-y: auto; overscroll-behavior-y: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
   .drawer--menu .drawer__inner { min-height: max-content; padding-bottom: calc(var(--s-9) + env(safe-area-inset-bottom)); }

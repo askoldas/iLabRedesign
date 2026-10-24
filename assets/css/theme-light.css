@@ -33,6 +33,10 @@
 [data-theme="light"] .toggle__knob { animation: none; transform: translateX(18px); background: var(--on-signal); }
 [data-theme="light"] .btn-shop:hover .toggle, [data-theme="light"] .btn-shop:focus-visible .toggle { background: transparent; }
 [data-theme="light"] .btn-shop:hover .toggle__knob, [data-theme="light"] .btn-shop:focus-visible .toggle__knob { transform: translateX(0); background: var(--signal); }
+@media (max-width: 1023px) {
+  [data-theme="light"] .header-mode-switch .toggle__knob { transform: translateX(14px); }
+  [data-theme="light"] .header-mode-switch:hover .toggle__knob, [data-theme="light"] .header-mode-switch:focus-visible .toggle__knob { transform: translateX(0); }
+}
 [data-theme="light"] .cookie .btn-secondary { color: var(--counter-ink); border-color: var(--counter-ink-2); }
 [data-theme="light"] .cookie .btn-secondary:hover { background: var(--counter-2); }
 [data-theme="light"] .counter { --error-soft: #F2B8B5; }
