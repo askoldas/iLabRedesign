@@ -194,6 +194,7 @@
 
   /* ---------- Text on scroll: headings rise from a clipped line; paragraphs, list items and facts light up word by word ---------- */
   function textOnScroll() {
+    if (document.body.dataset.page === 'home') return;
     const SKIP = '[data-rise], .hero, .tech, .crumbs, .branch-head, .rating-head, .review__meta, .spec, .models, .pill-list, .branch__links, .actions, .hero__proof, .strip, .cookie, .drawer, .form, .toc, .nav, .rail, .footer__col, .site-footer, .map, .quickfacts, .status, .finder';
     const skip = (el) => el.closest(SKIP) || el.closest('details:not([open])');
     // headings
@@ -234,6 +235,20 @@
       if (!words.length) return;
       gsap.fromTo(words, { opacity: 0.22 }, { opacity: 1, ease: 'none', stagger: 0.04, scrollTrigger: st });
     });
+  }
+
+  /* ---------- Homepage signature: the bench image stays physical while the copy clears ---------- */
+  function homeSignature() {
+    if (document.body.dataset.page !== 'home') return;
+    const hero = document.querySelector('.hero');
+    const image = hero && hero.querySelector('.hero__visual img');
+    if (hero && image) {
+      gsap.to(image, { scale: 1.07, yPercent: 4, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 } });
+    }
+    const statement = document.querySelector('.precision-intro__statement');
+    if (statement) {
+      gsap.from(statement.children, { yPercent: 45, opacity: 0.18, duration: 1, stagger: 0.09, ease: EASE, scrollTrigger: { trigger: statement, start: 'top 82%', once: true } });
+    }
   }
 
   /* ---------- Accordions: animate <details> height instead of snapping; a click mid-animation reverses ---------- */
@@ -298,6 +313,7 @@
     entrance();
     scrollReveals();
     processTrack();
+    homeSignature();
     textOnScroll();
     rails();
     accordions();
