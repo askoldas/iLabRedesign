@@ -153,7 +153,10 @@
   }
   api.scrollToY = scrollToY;
   function rails() {
-    document.querySelectorAll('[data-rail-ticks]').forEach((t) => { for (let i = 0; i < 41; i++) { const tick = document.createElement('i'); tick.style.top = `${(i / 40) * 100}%`; t.appendChild(tick); } });
+    document.querySelectorAll('[data-rail-ticks]').forEach((t) => {
+      if (t.closest('.rail--left')) return;
+      for (let i = 0; i < 41; i++) { const tick = document.createElement('i'); tick.style.top = `${(i / 40) * 100}%`; t.appendChild(tick); }
+    });
     const marker = document.querySelector('[data-rail-marker]');
     const left = document.querySelector('[data-rail-sections]');
     const sections = $$('main > section');
@@ -175,6 +178,20 @@
         b.addEventListener('click', () => scrollToY(sec.getBoundingClientRect().top + window.scrollY - headerH() + 1));
         track.appendChild(b); btns.push(b);
       });
+      for (let i = 0; i < sections.length - 1; i++) {
+        const start = (i / (sections.length - 1)) * 100;
+        const end = ((i + 1) / (sections.length - 1)) * 100;
+        const segment = document.createElement('span');
+        segment.className = 'rail__segment';
+        segment.style.top = `calc(${start}% + 18px)`;
+        segment.style.bottom = `calc(${100 - end}% + 18px)`;
+        for (let tickIndex = 0; tickIndex < 7; tickIndex++) {
+          const tick = document.createElement('i');
+          tick.style.top = `${(tickIndex / 6) * 100}%`;
+          segment.appendChild(tick);
+        }
+        track.appendChild(segment);
+      }
     }
     sections.forEach((sec, i) => ScrollTrigger.create({ trigger: sec, start: `top ${headerH() + 1}px`, end: `bottom ${headerH() + 1}px`, onToggle: (self) => {
       if (!self.isActive) return;
