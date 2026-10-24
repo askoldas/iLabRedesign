@@ -195,11 +195,11 @@
 
   /* ---------- Text on scroll: headings rise from a clipped line; paragraphs, list items and facts light up word by word ---------- */
   function textOnScroll() {
-    if (document.body.dataset.page === 'home') return;
+    const isHome = document.body.dataset.page === 'home';
     const SKIP = '[data-rise], .hero, .tech, .crumbs, .branch-head, .rating-head, .review__meta, .spec, .models, .pill-list, .branch__links, .actions, .hero__proof, .strip, .cookie, .drawer, .form, .toc, .nav, .rail, .footer__col, .site-footer, .map, .quickfacts, .status, .finder';
     const skip = (el) => el.closest(SKIP) || el.closest('details:not([open])');
     // headings
-    $$('main h2, main h3, main .h2, main .h3').forEach((h) => {
+    (isHome ? [] : $$('main h2, main h3, main .h2, main .h3')).forEach((h) => {
       if (skip(h) || h.dataset.riseDone || h.querySelector('a, button')) return;
       h.dataset.riseDone = '1';
       const inner = document.createElement('span');
@@ -209,7 +209,7 @@
     });
     // running text
     let budget = 2500; // words per page; beyond this, blocks fade instead of words
-    $$('main p, main li, main dd, main .fact, main summary').forEach((p) => {
+    (isHome ? $$('.home-reviews .review__text') : $$('main p, main li, main dd, main .fact, main summary')).forEach((p) => {
       if (skip(p) || p.dataset.wordsDone || p.querySelector('p, li, table, img')) return;
       p.dataset.wordsDone = '1';
       const count = p.textContent.trim().split(/\s+/).length;
@@ -255,19 +255,22 @@
   /* ---------- Reviews: the reading focus travels through the ledger ---------- */
   function reviewFocus() {
     if (document.body.dataset.page !== 'home') return;
-    $$('.reviews__branch [data-reviews]').forEach((list) => {
-      const reviews = $$('.review', list);
-      if (!reviews.length) return;
-      const focus = (active) => reviews.forEach((review) => review.classList.toggle('is-review-focus', review === active));
-      list.classList.add('has-review-focus');
-      focus(reviews[0]);
-      reviews.forEach((review) => ScrollTrigger.create({
-        trigger: review,
-        start: 'top 62%',
-        end: 'bottom 38%',
-        onEnter: () => focus(review),
-        onEnterBack: () => focus(review),
-      }));
+    const lists = $$('.reviews__branch [data-reviews]');
+    const columns = lists.map((list) => $$('.review', list));
+    const reviews = [];
+    const longest = Math.max(0, ...columns.map((column) => column.length));
+    for (let row = 0; row < longest; row++) columns.forEach((column) => column[row] && reviews.push(column[row]));
+    if (!reviews.length) return;
+    lists.forEach((list) => list.classList.add('has-review-focus'));
+    const focus = (index) => reviews.forEach((review, i) => review.classList.toggle('is-review-focus', i === index));
+    focus(0);
+    const section = document.querySelector('.home-reviews');
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 68%',
+      end: 'bottom 42%',
+      scrub: 0.4,
+      onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length))),
     });
   }
 
