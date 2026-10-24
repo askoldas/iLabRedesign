@@ -260,7 +260,7 @@
       if (!reviews.length) return;
       list.classList.add('has-review-focus');
       let current = 0;
-      const focus = (index) => {
+      const focus = (index, direction) => {
         if (index === current) return;
         const previous = current;
         current = index;
@@ -271,7 +271,7 @@
           if (words.length && (active || i === previous)) gsap.to(words, {
             opacity: active ? 1 : 0.2,
             duration: 0.42,
-            stagger: { each: 0.018, from: active ? 'start' : 'end' },
+            stagger: { each: 0.018, from: direction < 0 ? 'end' : 'start' },
             ease: 'power2.out',
             overwrite: true,
           });
@@ -283,7 +283,7 @@
         start: 'top 68%',
         end: 'bottom 42%',
         scrub: 0.4,
-        onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length))),
+        onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length)), self.direction),
       });
     });
   }
