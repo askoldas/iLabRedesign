@@ -48,13 +48,23 @@
       <p class="lead">Pick the device family, then the exact model. Every part lists the models it fits.</p>
     </div>
     <div class="devices" data-stagger>
-      <a class="device" href="{{root}}shop/iphone.html"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iphone.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPhone</b><span class="tech">40 models · 473 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/ipad"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_ipad.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPad</b><span class="tech">38 models · 87 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/macbook"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_macbook.webp" alt="" loading="lazy" width="900" height="900"></div><b>MacBook</b><span class="tech">30 models · 26 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/apple-watch"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iwatch.webp" alt="" loading="lazy" width="900" height="900"></div><b>Apple Watch</b><span class="tech">23 models · 19 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/samsung"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_samsung.webp" alt="" loading="lazy" width="900" height="900"></div><b>Samsung</b><span class="tech">1 model · on request</span></a>
-      <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/xiaomi"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_xiaomi.webp" alt="" loading="lazy" width="900" height="900"></div><b>Xiaomi</b><span class="tech">Parts on request</span></a>
-      <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/huawei"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_huawei.webp" alt="" loading="lazy" width="900" height="900"></div><b>Huawei</b><span class="tech">Parts on request</span></a>
+      <section class="device-family device-family--apple" aria-labelledby="apple-devices-title">
+        <header class="device-family__head"><p class="tech">Apple ecosystem</p><h3 class="h2" id="apple-devices-title">Apple devices</h3><p>Parts stocked across the connected Apple product line.</p></header>
+        <div class="devices__grid devices__grid--apple">
+          <a class="device" href="{{root}}shop/iphone.html"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iphone.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPhone</b><span class="tech">40 models · 473 parts</span></a>
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/ipad"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_ipad.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPad</b><span class="tech">38 models · 87 parts</span></a>
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/macbook"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_macbook.webp" alt="" loading="lazy" width="900" height="900"></div><b>MacBook</b><span class="tech">30 models · 26 parts</span></a>
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/apple-watch"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iwatch.webp" alt="" loading="lazy" width="900" height="900"></div><b>Apple Watch</b><span class="tech">23 models · 19 parts</span></a>
+        </div>
+      </section>
+      <section class="device-family device-family--android" aria-labelledby="android-devices-title">
+        <header class="device-family__head"><p class="tech">Android brands</p><h3 class="h2" id="android-devices-title">Android devices</h3><p>Choose the manufacturer before narrowing down the model.</p></header>
+        <div class="devices__grid devices__grid--android">
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/samsung"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_samsung.webp" alt="" loading="lazy" width="900" height="900"></div><b>Samsung</b><span class="tech">1 model · on request</span></a>
+          <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/xiaomi"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_xiaomi.webp" alt="" loading="lazy" width="900" height="900"></div><b>Xiaomi</b><span class="tech">Parts on request</span></a>
+          <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/huawei"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_huawei.webp" alt="" loading="lazy" width="900" height="900"></div><b>Huawei</b><span class="tech">Parts on request</span></a>
+        </div>
+      </section>
     </div>
     <div class="repair-card" style="margin-top:var(--s-6)">
       <p class="h3">Need professional repair?</p>
