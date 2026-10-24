@@ -185,9 +185,9 @@
         segment.className = 'rail__segment';
         segment.style.top = `calc(${start}% + 18px)`;
         segment.style.bottom = `calc(${100 - end}% + 18px)`;
-        for (let tickIndex = 0; tickIndex < 7; tickIndex++) {
+        for (let tickIndex = 0; tickIndex < 3; tickIndex++) {
           const tick = document.createElement('i');
-          tick.style.top = `${(tickIndex / 6) * 100}%`;
+          tick.style.top = `${(tickIndex / 2) * 100}%`;
           segment.appendChild(tick);
         }
         track.appendChild(segment);
