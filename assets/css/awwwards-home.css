@@ -27,11 +27,19 @@ body[data-page="home"] .hero__coords { border-top-color: var(--hairline); }
 
 /* The section index remains a ruler when the page changes polarity. */
 body[data-page="home"] .rail__sect { background: transparent; }
+body[data-page="home"] .rail--left .rail__sect { isolation: isolate; }
+body[data-page="home"] .rail--left .rail__sect::before {
+  content: "";
+  position: absolute;
+  inset: 4px 12px;
+  z-index: -1;
+  background: var(--paper);
+}
 .rail-on-light body[data-page="home"] .rail { color: #071014; border-color: rgb(7 16 20 / .28); }
 .rail-on-light body[data-page="home"] .rail__ticks,
-.rail-on-light body[data-page="home"] .rail__ticks::before,
 .rail-on-light body[data-page="home"] .rail__ticks i { background-color: rgb(7 16 20 / .42); }
 .rail-on-light body[data-page="home"] .rail__sect { color: rgb(7 16 20 / .62); }
+.rail-on-light body[data-page="home"] .rail--left .rail__sect::before { background: var(--ink); }
 .rail-on-light body[data-page="home"] .rail__sect.is-cur { color: var(--signal); }
 
 /* The thesis: a single typographic field between utility and catalogue. */
