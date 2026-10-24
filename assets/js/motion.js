@@ -255,22 +255,19 @@
   /* ---------- Reviews: the reading focus travels through the ledger ---------- */
   function reviewFocus() {
     if (document.body.dataset.page !== 'home') return;
-    const lists = $$('.reviews__branch [data-reviews]');
-    const columns = lists.map((list) => $$('.review', list));
-    const reviews = [];
-    const longest = Math.max(0, ...columns.map((column) => column.length));
-    for (let row = 0; row < longest; row++) columns.forEach((column) => column[row] && reviews.push(column[row]));
-    if (!reviews.length) return;
-    lists.forEach((list) => list.classList.add('has-review-focus'));
-    const focus = (index) => reviews.forEach((review, i) => review.classList.toggle('is-review-focus', i === index));
-    focus(0);
-    const section = document.querySelector('.home-reviews');
-    ScrollTrigger.create({
-      trigger: section,
-      start: 'top 68%',
-      end: 'bottom 42%',
-      scrub: 0.4,
-      onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length))),
+    $$('.reviews__branch [data-reviews]').forEach((list) => {
+      const reviews = $$('.review', list);
+      if (!reviews.length) return;
+      list.classList.add('has-review-focus');
+      const focus = (index) => reviews.forEach((review, i) => review.classList.toggle('is-review-focus', i === index));
+      focus(0);
+      ScrollTrigger.create({
+        trigger: list,
+        start: 'top 68%',
+        end: 'bottom 42%',
+        scrub: 0.4,
+        onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length))),
+      });
     });
   }
 
