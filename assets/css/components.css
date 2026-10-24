@@ -82,6 +82,7 @@
   .header-actions { flex: none; margin-left: auto; gap: 4px; }
   .header-actions .only-mobile { display: inline-flex; }
   .header-actions .icon-btn.only-mobile { display: inline-grid; }
+  .header-actions .header-mode-switch { width: 52px; height: 44px; padding-inline: 6px; }
   .header-actions .lang.only-mobile { min-width: 40px; justify-content: center; padding-inline: 8px; border-left: 0; }
   .drawer--menu { max-height: 100dvh; overflow-y: auto; overscroll-behavior-y: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
   .drawer--menu .drawer__inner { min-height: max-content; padding-bottom: calc(var(--s-9) + env(safe-area-inset-bottom)); }
