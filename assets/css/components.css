@@ -40,7 +40,9 @@
 .site-header { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--hairline); height: var(--header-h); }
 /* full-width bar: logo left, nav centred, actions far right */
 .site-header__inner { height: 100%; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-5); padding-inline: 20px; }
-.logo + .nav { justify-self: start; border-left: 1px solid var(--hairline); padding-left: var(--s-3); margin-left: calc(-1 * var(--s-2)); }
+.header-brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+.header-brand .only-mobile { display: none; }
+.header-brand + .nav { justify-self: start; border-left: 1px solid var(--hairline); padding-left: var(--s-3); margin-left: calc(-1 * var(--s-2)); }
 @media (min-width: 768px) { .site-header__inner { padding-inline: 32px; } }
 @media (min-width: 1280px) { .site-header__inner { padding-inline: 40px; } }
 
@@ -77,6 +79,19 @@
 /* while the menu is open the header stays on top so the burger can animate to a cross */
 .menu-open .site-header { z-index: 75; }
 .drawer--menu .drawer__inner { padding-top: calc(var(--header-h) + var(--s-5)); }
+@media (max-width: 1023px) {
+  .site-header__inner { display: flex; justify-content: space-between; gap: var(--s-3); }
+  .header-actions { flex: none; margin-left: auto; gap: 4px; }
+  .header-actions .only-mobile { display: inline-flex; }
+  .header-actions .icon-btn.only-mobile { display: inline-grid; }
+  .header-brand .header-mode-switch { display: inline-flex; width: auto; height: 34px; gap: 6px; padding-inline: 7px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .header-mode-switch .toggle { width: 30px; height: 16px; }
+  .header-mode-switch .toggle__knob { width: 10px; height: 10px; }
+  .header-mode-switch:hover .toggle__knob, .header-mode-switch:focus-visible .toggle__knob { transform: translateX(14px); }
+  .header-actions .lang.only-mobile { min-width: 40px; justify-content: center; padding-inline: 8px; border-left: 0; }
+  .drawer--menu { max-height: 100dvh; overflow-y: auto; overscroll-behavior-y: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+  .drawer--menu .drawer__inner { min-height: max-content; padding-bottom: calc(var(--s-9) + env(safe-area-inset-bottom)); }
+}
 @media (min-width: 1024px) and (max-width: 1439px) {
   .header-actions .icon-btn.only-desktop, .header-actions .btn-secondary.only-desktop { display: none; }
   .header-actions .icon-btn.only-mobile[data-open="locator"] { display: inline-grid; order: -1; }
@@ -91,9 +106,11 @@
 }
 
 /* ---------- Mobile bottom bar ---------- */
-.bottombar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; height: var(--bottombar-h); display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--counter-hair); padding-bottom: env(safe-area-inset-bottom); }
+.bottombar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; height: var(--bottombar-h); display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--counter-hair); padding-bottom: env(safe-area-inset-bottom); }
 .bottombar button, .bottombar a { display: grid; place-items: center; text-align: center; padding: 0 6px; line-height: 1.1; font-size: 13px; font-weight: 500; font-variation-settings: "SHRP" 60; border-left: 1px solid var(--counter-hair); }
 .bottombar > :first-child { border-left: 0; }
+.bottombar .btn-traced { color: var(--signal); border-top-color: rgba(71, 198, 226, 0.35); }
+.bottombar .btn-trace { inset: 0; width: 100%; height: 100%; }
 @media (min-width: 1024px) { .bottombar { display: none; } }
 
 /* Desktop floating actions, bottom right (same pair and behaviour as the live site) */

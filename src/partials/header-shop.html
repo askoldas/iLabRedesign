@@ -1,6 +1,9 @@
 <header class="site-header" data-header>
   <div class="site-header__inner">
-    <a class="logo" href="{{root}}shop/index.html" aria-label="iLab Shop home"><!-- @include partials/logo.html --></a>
+    <div class="header-brand">
+      <a class="logo" href="{{root}}shop/index.html" aria-label="iLab Shop home"><!-- @include partials/logo.html --></a>
+      <a class="btn btn-shop header-mode-switch only-mobile" href="{{shop}}" aria-label="{{shop_aria}}"><span class="toggle" aria-hidden="true"><i class="toggle__knob"></i></span><span class="btn__label">Service</span></a>
+    </div>
     <nav class="nav nav--shop" aria-label="Shop navigation">
       <ul class="nav__list">
         <li class="nav__item"><a class="nav__link" data-page="iphone" href="{{root}}shop/iphone.html">iPhone</a></li>
@@ -19,7 +22,7 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <a class="btn btn-shop btn--sm only-desktop" href="{{shop}}" aria-label="{{shop_aria}}"><span class="toggle" aria-hidden="true"><i class="toggle__knob"></i></span><span class="btn__label">{{shop_label}}</span></a>
+      <a class="btn btn-shop btn--sm only-desktop" href="{{shop}}" aria-label="{{shop_aria}}"><span class="toggle" aria-hidden="true"><i class="toggle__knob"></i></span><span class="btn__label">Service</span></a>
       <button class="btn-text only-desktop" type="button" data-open="login" data-account-btn>Login</button>
       <button class="btn btn-traced btn--sm only-desktop" type="button" data-open="search"><svg class="btn-trace" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" pathLength="100" class="btn-trace__trail"/><rect x="0" y="0" width="100" height="100" pathLength="100" class="btn-trace__head"/></svg>Search</button>
       <button class="btn btn-primary btn--sm cart-btn only-desktop" type="button" data-open="cart">Cart<span data-cart-count aria-live="polite"></span></button>
