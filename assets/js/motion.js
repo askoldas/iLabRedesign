@@ -259,8 +259,25 @@
       const reviews = $$('.review', list);
       if (!reviews.length) return;
       list.classList.add('has-review-focus');
-      const focus = (index) => reviews.forEach((review, i) => review.classList.toggle('is-review-focus', i === index));
-      focus(0);
+      let current = 0;
+      const focus = (index) => {
+        if (index === current) return;
+        const previous = current;
+        current = index;
+        reviews.forEach((review, i) => {
+          const active = i === index;
+          review.classList.toggle('is-review-focus', active);
+          const words = $$('.word', review);
+          if (words.length && (active || i === previous)) gsap.to(words, {
+            opacity: active ? 1 : 0.2,
+            duration: 0.42,
+            stagger: { each: 0.018, from: active ? 'start' : 'end' },
+            ease: 'power2.out',
+            overwrite: true,
+          });
+        });
+      };
+      reviews.forEach((review, i) => review.classList.toggle('is-review-focus', i === 0));
       ScrollTrigger.create({
         trigger: list,
         start: 'top 68%',
@@ -334,8 +351,8 @@
     scrollReveals();
     processTrack();
     homeSignature();
-    reviewFocus();
     textOnScroll();
+    reviewFocus();
     rails();
     accordions();
     transitions();

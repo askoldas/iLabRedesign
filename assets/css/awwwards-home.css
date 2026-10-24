@@ -149,9 +149,7 @@ body[data-page="home"] .reviews__branch .review__text,
 body[data-page="home"] .reviews__branch .review__meta {
   transition: opacity .55s ease, color .55s ease;
 }
-body[data-page="home"] .reviews__branch [data-reviews].has-review-focus .review:not(.is-review-focus) .review__text { opacity: .2; }
 body[data-page="home"] .reviews__branch [data-reviews].has-review-focus .review:not(.is-review-focus) .review__meta { opacity: .3; }
-body[data-page="home"] .reviews__branch .review.is-review-focus .review__text,
 body[data-page="home"] .reviews__branch .review.is-review-focus .review__meta { opacity: 1; }
 body[data-page="home"] #locations { padding-block: clamp(112px, 12vw, 176px); }
 body[data-page="home"] .locations { overflow: hidden; }
