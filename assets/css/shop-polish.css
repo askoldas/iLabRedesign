@@ -34,8 +34,22 @@ html[data-theme="light"] .device b { font-size: clamp(20px, 1.8vw, 28px); letter
 html[data-theme="light"] .device-family--android { padding-top: clamp(56px, 6vw, 88px); border-top: 1px solid var(--ink); }
 html[data-theme="light"] .device-family--android .device .photo { aspect-ratio: 1; }
 
-html[data-theme="light"] .finder-shop { gap: clamp(40px, 6vw, 88px); }
-html[data-theme="light"] .stage { border: 0; min-height: 520px; }
+html[data-theme="light"] .rail--left .rail__sect { background: transparent; }
+html[data-theme="light"] .finder-shop {
+  gap: clamp(32px, 4vw, 64px);
+  align-items: stretch;
+  padding-bottom: clamp(56px, 6vw, 88px);
+}
+html[data-theme="light"] .finder-shop__stage { grid-template-rows: minmax(280px, 420px) auto; }
+html[data-theme="light"] .finder-shop__selectors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2vw, 32px); }
+html[data-theme="light"] .stage { border: 0; min-height: 0; aspect-ratio: auto; }
+html[data-theme="light"] .finder-shop__types { display: flex; flex-direction: column; }
+html[data-theme="light"] .finder-shop__types .tiles { flex: 1; }
+html[data-theme="light"] .catalog-results {
+  scroll-margin-top: calc(var(--header-h) + 28px);
+  padding-top: clamp(56px, 6vw, 88px);
+  border-top: 1px solid var(--ink);
+}
 html[data-theme="light"] .pgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); border-inline: 0; }
 html[data-theme="light"] .pcard { padding: clamp(18px, 2vw, 30px); gap: 14px; }
 html[data-theme="light"] .pcard .photo { aspect-ratio: 4 / 5; background: #fff; }
@@ -68,4 +82,7 @@ html[data-theme="light"] .price-block .price-big { font-size: clamp(58px, 6vw, 9
   html[data-theme="light"] .device-family--android { border-top-color: var(--hairline); }
   html[data-theme="light"] .stage,
   html[data-theme="light"] .gallery__main { min-height: 0; }
+  html[data-theme="light"] .finder-shop__stage { grid-template-rows: auto auto; }
+  html[data-theme="light"] .stage { aspect-ratio: 4 / 3; }
+  html[data-theme="light"] .finder-shop__selectors { grid-template-columns: 1fr; }
 }
