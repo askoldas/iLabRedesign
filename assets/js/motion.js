@@ -179,7 +179,6 @@
     sections.forEach((sec, i) => ScrollTrigger.create({ trigger: sec, start: `top ${headerH() + 1}px`, end: `bottom ${headerH() + 1}px`, onToggle: (self) => {
       if (!self.isActive) return;
       btns.forEach((b, k) => b.classList.toggle('is-cur', k === i));
-      document.documentElement.classList.toggle('rail-on-light', sec.classList.contains('precision-intro'));
     } }));
     // right rail: marker follows scroll progress; clicking the ruler scrolls there
     if (marker) {
