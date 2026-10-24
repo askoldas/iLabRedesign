@@ -179,6 +179,7 @@
     sections.forEach((sec, i) => ScrollTrigger.create({ trigger: sec, start: `top ${headerH() + 1}px`, end: `bottom ${headerH() + 1}px`, onToggle: (self) => {
       if (!self.isActive) return;
       btns.forEach((b, k) => b.classList.toggle('is-cur', k === i));
+      document.documentElement.classList.toggle('rail-on-light', sec.classList.contains('precision-intro'));
     } }));
     // right rail: marker follows scroll progress; clicking the ruler scrolls there
     if (marker) {
@@ -251,6 +252,25 @@
     }
   }
 
+  /* ---------- Reviews: the reading focus travels through the ledger ---------- */
+  function reviewFocus() {
+    if (document.body.dataset.page !== 'home') return;
+    $$('.reviews__branch [data-reviews]').forEach((list) => {
+      const reviews = $$('.review', list);
+      if (!reviews.length) return;
+      const focus = (active) => reviews.forEach((review) => review.classList.toggle('is-review-focus', review === active));
+      list.classList.add('has-review-focus');
+      focus(reviews[0]);
+      reviews.forEach((review) => ScrollTrigger.create({
+        trigger: review,
+        start: 'top 62%',
+        end: 'bottom 38%',
+        onEnter: () => focus(review),
+        onEnterBack: () => focus(review),
+      }));
+    });
+  }
+
   /* ---------- Accordions: animate <details> height instead of snapping; a click mid-animation reverses ---------- */
   function accordions() {
     document.addEventListener('click', (e) => {
@@ -314,6 +334,7 @@
     scrollReveals();
     processTrack();
     homeSignature();
+    reviewFocus();
     textOnScroll();
     rails();
     accordions();

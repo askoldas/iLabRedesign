@@ -10,8 +10,9 @@ body[data-page="home"] .reviews__intro .h2 {
   -webkit-text-fill-color: currentColor;
 }
 body[data-page="home"] .hero__eyebrow::after { opacity: .45; }
-body[data-page="home"] .hero__copy { position: relative; z-index: 2; }
-body[data-page="home"] .hero__visual { overflow: hidden; }
+body[data-page="home"] .hero__grid { overflow: visible; }
+body[data-page="home"] .hero__copy { position: relative; z-index: 3; overflow: visible; }
+body[data-page="home"] .hero__visual { position: relative; z-index: 1; overflow: hidden; }
 body[data-page="home"] .hero__visual::before {
   content: "";
   position: absolute;
@@ -23,6 +24,15 @@ body[data-page="home"] .hero__visual::before {
 body[data-page="home"] .hero__visual img { transform-origin: 50% 50%; }
 body[data-page="home"] .hero__proof { max-width: 62ch; }
 body[data-page="home"] .hero__coords { border-top-color: var(--hairline); }
+
+/* The section index remains a ruler when the page changes polarity. */
+body[data-page="home"] .rail__sect { background: transparent; }
+.rail-on-light body[data-page="home"] .rail { color: #071014; border-color: rgb(7 16 20 / .28); }
+.rail-on-light body[data-page="home"] .rail__ticks,
+.rail-on-light body[data-page="home"] .rail__ticks::before,
+.rail-on-light body[data-page="home"] .rail__ticks i { background-color: rgb(7 16 20 / .42); }
+.rail-on-light body[data-page="home"] .rail__sect { color: rgb(7 16 20 / .62); }
+.rail-on-light body[data-page="home"] .rail__sect.is-cur { color: var(--signal); }
 
 /* The thesis: a single typographic field between utility and catalogue. */
 .precision-intro {
@@ -134,9 +144,23 @@ body[data-page="home"] .home-benefits .fact .small { max-width: 30ch; font-size:
 
 /* Reviews and locations get more air and a clearer poster-like frame. */
 body[data-page="home"] .home-reviews { padding-block: clamp(112px, 12vw, 176px); }
-body[data-page="home"] .reviews__branch .review:first-child .review__text { font-size: clamp(22px, 2vw, 30px); line-height: 1.35; letter-spacing: -.02em; }
+body[data-page="home"] .reviews__branch .review,
+body[data-page="home"] .reviews__branch .review__text,
+body[data-page="home"] .reviews__branch .review__meta {
+  transition: opacity .55s ease, color .55s ease, font-size .55s cubic-bezier(.22, 1, .36, 1);
+}
+body[data-page="home"] .reviews__branch [data-reviews].has-review-focus .review:not(.is-review-focus) .review__text { opacity: .42; }
+body[data-page="home"] .reviews__branch [data-reviews].has-review-focus .review:not(.is-review-focus) .review__meta { opacity: .48; }
+body[data-page="home"] .reviews__branch .review.is-review-focus .review__text {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  opacity: 1;
+}
 body[data-page="home"] #locations { padding-block: clamp(112px, 12vw, 176px); }
-body[data-page="home"] .locations .map { min-height: 680px; }
+body[data-page="home"] .locations { overflow: hidden; }
+body[data-page="home"] .locations .map { min-width: 0; min-height: 540px; overflow: hidden; }
+body[data-page="home"] .location-detail { position: relative; z-index: 2; min-width: 0; background: var(--paper-2); }
 
 /* The close is a question, not another narrow banner. */
 body[data-page="home"] .cta-band { min-height: min(76svh, 780px); display: grid; align-items: center; padding-block: clamp(96px, 12vw, 160px); }
@@ -147,8 +171,18 @@ body[data-page="home"] .cta-band .actions { grid-column: 10 / 13; align-self: en
   body[data-page="home"] .hero__grid { grid-template-columns: minmax(0, 6.5fr) minmax(0, 5.5fr); }
   body[data-page="home"] .hero__copy,
   body[data-page="home"] .hero__visual .photo { min-height: calc(100svh - var(--header-h) - 72px); }
-  body[data-page="home"] .hero .display-1 { font-size: clamp(70px, 6.4vw, 108px); line-height: .88; letter-spacing: -.06em; }
+  body[data-page="home"] .hero .display-1 {
+    position: relative;
+    z-index: 4;
+    width: calc(100% + clamp(220px, 22vw, 420px));
+    max-width: none;
+    font-size: clamp(70px, 6.4vw, 108px);
+    line-height: .88;
+    letter-spacing: -.06em;
+    pointer-events: none;
+  }
   body[data-page="home"] .hero__copy { padding-right: clamp(24px, 4vw, 72px); }
+  body[data-page="home"] .locations { grid-template-columns: minmax(0, 6fr) minmax(390px, 6fr); }
 }
 
 @media (max-width: 1023px) {
@@ -166,6 +200,7 @@ body[data-page="home"] .cta-band .actions { grid-column: 10 / 13; align-self: en
 }
 
 @media (max-width: 767px) {
+  body[data-page="home"] .hero .display-1 { width: 100%; }
   .precision-intro { padding-block: 88px; }
   .precision-intro__grid { row-gap: var(--s-6); }
   .precision-intro__kicker,
