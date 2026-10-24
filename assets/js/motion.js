@@ -286,6 +286,28 @@
         onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length)), self.direction),
       });
     });
+
+    const columns = $$('.reviews__branch [data-reviews]').map((list) => $$('.review', list));
+    const syncHeights = () => {
+      columns.flat().forEach((review) => (review.style.minHeight = ''));
+      if (window.innerWidth < 1024 || columns.length < 2) return;
+      const count = Math.max(...columns.map((column) => column.length));
+      for (let row = 0; row < count; row++) {
+        const peers = columns.map((column) => column[row]).filter(Boolean);
+        const height = Math.max(...peers.map((review) => review.getBoundingClientRect().height));
+        peers.forEach((review) => (review.style.minHeight = `${Math.ceil(height)}px`));
+      }
+    };
+    let resizeFrame;
+    const scheduleSync = () => {
+      cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => { syncHeights(); ScrollTrigger.refresh(); });
+    };
+    scheduleSync();
+    window.addEventListener('resize', scheduleSync, { passive: true });
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('.home-reviews [data-expand]')) setTimeout(scheduleSync, 360);
+    });
   }
 
   /* ---------- Accordions: animate <details> height instead of snapping; a click mid-animation reverses ---------- */
