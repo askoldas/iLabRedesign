@@ -153,7 +153,10 @@
   }
   api.scrollToY = scrollToY;
   function rails() {
-    document.querySelectorAll('[data-rail-ticks]').forEach((t) => { for (let i = 0; i < 41; i++) { const tick = document.createElement('i'); tick.style.top = `${(i / 40) * 100}%`; t.appendChild(tick); } });
+    document.querySelectorAll('[data-rail-ticks]').forEach((t) => {
+      if (t.closest('.rail--left')) return;
+      for (let i = 0; i < 41; i++) { const tick = document.createElement('i'); tick.style.top = `${(i / 40) * 100}%`; t.appendChild(tick); }
+    });
     const marker = document.querySelector('[data-rail-marker]');
     const left = document.querySelector('[data-rail-sections]');
     const sections = $$('main > section');
@@ -175,6 +178,20 @@
         b.addEventListener('click', () => scrollToY(sec.getBoundingClientRect().top + window.scrollY - headerH() + 1));
         track.appendChild(b); btns.push(b);
       });
+      for (let i = 0; i < sections.length - 1; i++) {
+        const start = (i / (sections.length - 1)) * 100;
+        const end = ((i + 1) / (sections.length - 1)) * 100;
+        const segment = document.createElement('span');
+        segment.className = 'rail__segment';
+        segment.style.top = `calc(${start}% + 18px)`;
+        segment.style.bottom = `calc(${100 - end}% + 18px)`;
+        for (let tickIndex = 0; tickIndex < 3; tickIndex++) {
+          const tick = document.createElement('i');
+          tick.style.top = `${(tickIndex / 2) * 100}%`;
+          segment.appendChild(tick);
+        }
+        track.appendChild(segment);
+      }
     }
     sections.forEach((sec, i) => ScrollTrigger.create({ trigger: sec, start: `top ${headerH() + 1}px`, end: `bottom ${headerH() + 1}px`, onToggle: (self) => {
       if (!self.isActive) return;
@@ -194,10 +211,11 @@
 
   /* ---------- Text on scroll: headings rise from a clipped line; paragraphs, list items and facts light up word by word ---------- */
   function textOnScroll() {
+    const isHome = document.body.dataset.page === 'home';
     const SKIP = '[data-rise], .hero, .tech, .crumbs, .branch-head, .rating-head, .review__meta, .spec, .models, .pill-list, .branch__links, .actions, .hero__proof, .strip, .cookie, .drawer, .form, .toc, .nav, .rail, .footer__col, .site-footer, .map, .quickfacts, .status, .finder';
     const skip = (el) => el.closest(SKIP) || el.closest('details:not([open])');
     // headings
-    $$('main h2, main h3, main .h2, main .h3').forEach((h) => {
+    (isHome ? [] : $$('main h2, main h3, main .h2, main .h3')).forEach((h) => {
       if (skip(h) || h.dataset.riseDone || h.querySelector('a, button')) return;
       h.dataset.riseDone = '1';
       const inner = document.createElement('span');
@@ -207,7 +225,7 @@
     });
     // running text
     let budget = 2500; // words per page; beyond this, blocks fade instead of words
-    $$('main p, main li, main dd, main .fact, main summary').forEach((p) => {
+    (isHome ? $$('.home-reviews .review__text') : $$('main p, main li, main dd, main .fact, main summary')).forEach((p) => {
       if (skip(p) || p.dataset.wordsDone || p.querySelector('p, li, table, img')) return;
       p.dataset.wordsDone = '1';
       const count = p.textContent.trim().split(/\s+/).length;
@@ -233,6 +251,78 @@
       const words = $$('.word', p);
       if (!words.length) return;
       gsap.fromTo(words, { opacity: 0.22 }, { opacity: 1, ease: 'none', stagger: 0.04, scrollTrigger: st });
+    });
+  }
+
+  /* ---------- Homepage signature: the bench image stays physical while the copy clears ---------- */
+  function homeSignature() {
+    if (document.body.dataset.page !== 'home') return;
+    const hero = document.querySelector('.hero');
+    const image = hero && hero.querySelector('.hero__visual img');
+    if (hero && image) {
+      gsap.to(image, { scale: 1.07, yPercent: 4, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.6 } });
+    }
+    const statement = document.querySelector('.precision-intro__statement');
+    if (statement) {
+      gsap.from(statement.children, { yPercent: 45, opacity: 0.18, duration: 1, stagger: 0.09, ease: EASE, scrollTrigger: { trigger: statement, start: 'top 82%', once: true } });
+    }
+  }
+
+  /* ---------- Reviews: the reading focus travels through the ledger ---------- */
+  function reviewFocus() {
+    if (document.body.dataset.page !== 'home') return;
+    $$('.reviews__branch [data-reviews]').forEach((list) => {
+      const reviews = $$('.review', list);
+      if (!reviews.length) return;
+      list.classList.add('has-review-focus');
+      let current = 0;
+      const focus = (index, direction) => {
+        if (index === current) return;
+        const previous = current;
+        current = index;
+        reviews.forEach((review, i) => {
+          const active = i === index;
+          review.classList.toggle('is-review-focus', active);
+          const words = $$('.word', review);
+          if (words.length && (active || i === previous)) gsap.to(words, {
+            opacity: active ? 1 : 0.2,
+            duration: 0.42,
+            stagger: { each: 0.018, from: direction < 0 ? 'end' : 'start' },
+            ease: 'power2.out',
+            overwrite: true,
+          });
+        });
+      };
+      reviews.forEach((review, i) => review.classList.toggle('is-review-focus', i === 0));
+      ScrollTrigger.create({
+        trigger: list,
+        start: 'top 68%',
+        end: 'bottom 42%',
+        scrub: 0.4,
+        onUpdate: (self) => focus(Math.min(reviews.length - 1, Math.floor(self.progress * reviews.length)), self.direction),
+      });
+    });
+
+    const columns = $$('.reviews__branch [data-reviews]').map((list) => $$('.review', list));
+    const syncHeights = () => {
+      columns.flat().forEach((review) => (review.style.minHeight = ''));
+      if (window.innerWidth < 1024 || columns.length < 2) return;
+      const count = Math.max(...columns.map((column) => column.length));
+      for (let row = 0; row < count; row++) {
+        const peers = columns.map((column) => column[row]).filter(Boolean);
+        const height = Math.max(...peers.map((review) => review.getBoundingClientRect().height));
+        peers.forEach((review) => (review.style.minHeight = `${Math.ceil(height)}px`));
+      }
+    };
+    let resizeFrame;
+    const scheduleSync = () => {
+      cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(() => { syncHeights(); ScrollTrigger.refresh(); });
+    };
+    scheduleSync();
+    window.addEventListener('resize', scheduleSync, { passive: true });
+    document.addEventListener('click', (event) => {
+      if (event.target.closest('.home-reviews [data-expand]')) setTimeout(scheduleSync, 360);
     });
   }
 
@@ -298,7 +388,9 @@
     entrance();
     scrollReveals();
     processTrack();
+    homeSignature();
     textOnScroll();
+    reviewFocus();
     rails();
     accordions();
     transitions();

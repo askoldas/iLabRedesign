@@ -48,13 +48,23 @@
       <p class="lead">Pick the device family, then the exact model. Every part lists the models it fits.</p>
     </div>
     <div class="devices" data-stagger>
-      <a class="device" href="{{root}}shop/iphone.html"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iphone.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPhone</b><span class="tech">40 models · 473 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/ipad"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_ipad.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPad</b><span class="tech">38 models · 87 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/macbook"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_macbook.webp" alt="" loading="lazy" width="900" height="900"></div><b>MacBook</b><span class="tech">30 models · 26 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/apple-watch"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iwatch.webp" alt="" loading="lazy" width="900" height="900"></div><b>Apple Watch</b><span class="tech">23 models · 19 parts</span></a>
-      <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/samsung"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_samsung.webp" alt="" loading="lazy" width="900" height="900"></div><b>Samsung</b><span class="tech">1 model · on request</span></a>
-      <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/xiaomi"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_xiaomi.webp" alt="" loading="lazy" width="900" height="900"></div><b>Xiaomi</b><span class="tech">Parts on request</span></a>
-      <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/huawei"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_huawei.webp" alt="" loading="lazy" width="900" height="900"></div><b>Huawei</b><span class="tech">Parts on request</span></a>
+      <section class="device-family device-family--apple" aria-labelledby="apple-devices-title">
+        <header class="device-family__head"><p class="tech">Apple ecosystem</p><h3 class="h2" id="apple-devices-title">Apple devices</h3><p>Parts stocked across the connected Apple product line.</p></header>
+        <div class="devices__grid devices__grid--apple">
+          <a class="device" href="{{root}}shop/iphone.html"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iphone.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPhone</b><span class="tech">40 models · 473 parts</span></a>
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/ipad"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_ipad.webp" alt="" loading="lazy" width="900" height="900"></div><b>iPad</b><span class="tech">38 models · 87 parts</span></a>
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/macbook"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_macbook.webp" alt="" loading="lazy" width="900" height="900"></div><b>MacBook</b><span class="tech">30 models · 26 parts</span></a>
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/apple-watch"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_iwatch.webp" alt="" loading="lazy" width="900" height="900"></div><b>Apple Watch</b><span class="tech">23 models · 19 parts</span></a>
+        </div>
+      </section>
+      <section class="device-family device-family--android" aria-labelledby="android-devices-title">
+        <header class="device-family__head"><p class="tech">Android brands</p><h3 class="h2" id="android-devices-title">Android devices</h3><p>Choose the manufacturer before narrowing down the model.</p></header>
+        <div class="devices__grid devices__grid--android">
+          <a class="device" href="{{root}}shop/iphone.html" data-template-of="/shop/samsung"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_samsung.webp" alt="" loading="lazy" width="900" height="900"></div><b>Samsung</b><span class="tech">1 model · on request</span></a>
+          <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/xiaomi"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_xiaomi.webp" alt="" loading="lazy" width="900" height="900"></div><b>Xiaomi</b><span class="tech">Parts on request</span></a>
+          <a class="device is-empty" href="{{root}}shop/iphone.html" data-template-of="/shop/huawei"><div class="photo"><img src="{{root}}assets/img/shop/device_selector_huawei.webp" alt="" loading="lazy" width="900" height="900"></div><b>Huawei</b><span class="tech">Parts on request</span></a>
+        </div>
+      </section>
     </div>
     <div class="repair-card" style="margin-top:var(--s-6)">
       <p class="h3">Need professional repair?</p>
@@ -71,32 +81,33 @@
     <div class="finder-shop" data-finder-shop>
       <div class="finder-shop__stage">
         <div class="stage"><img data-finder-stage src="{{root}}assets/img/shop/finder_stage_iphone.webp" alt="" width="600" height="600"></div>
-        <div class="combo" data-combo="device">
-          <label class="label" for="finder-device">Device</label>
-          <input id="finder-device" type="text" placeholder="iPhone, iPad, MacBook…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="finder-device-list" value="iPhone">
-          <ul class="combo__list" id="finder-device-list" role="listbox"></ul>
-        </div>
-        <div class="combo" data-combo="model">
-          <label class="label" for="finder-model">Model</label>
-          <input id="finder-model" type="text" placeholder="All models" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="finder-model-list">
-          <ul class="combo__list" id="finder-model-list" role="listbox"></ul>
+        <div class="finder-shop__selectors">
+          <div class="combo" data-combo="device">
+            <label class="label" for="finder-device">Device</label>
+            <input id="finder-device" type="text" placeholder="iPhone, iPad, MacBook…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="finder-device-list" value="iPhone">
+            <ul class="combo__list" id="finder-device-list" role="listbox"></ul>
+          </div>
+          <div class="combo" data-combo="model">
+            <label class="label" for="finder-model">Model</label>
+            <input id="finder-model" type="text" placeholder="All models" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="finder-model-list">
+            <ul class="combo__list" id="finder-model-list" role="listbox"></ul>
+          </div>
         </div>
       </div>
-      <div>
+      <div class="finder-shop__types">
         <div class="catalog-head"><p class="label" style="margin:0">Part type</p><button class="btn-text small" type="button" data-clear-type hidden>Clear category</button></div>
         <div class="tiles" data-type-tiles></div>
       </div>
     </div>
-  </section>
-
-  <section class="section container" id="products" data-catalog data-brand="iphone">
-    <div class="catalog-head">
-      <div><p class="label">Product catalog</p><h2 class="h2" data-catalog-title>iPhone parts</h2></div>
-      <span class="tech" data-catalog-count aria-live="polite"></span>
+    <div class="catalog-results" id="products" data-catalog data-brand="iphone">
+      <div class="catalog-head">
+        <div><p class="label">Product catalog</p><h2 class="h2" data-catalog-title>iPhone parts</h2></div>
+        <span class="tech" data-catalog-count aria-live="polite"></span>
+      </div>
+      <div class="pgrid" data-catalog-grid></div>
+      <p class="state-text" data-catalog-empty hidden>No compatible products match these filters.</p>
+      <div class="catalog-foot"><button class="btn btn-secondary" type="button" data-catalog-more hidden>Load more</button><span class="tech" data-catalog-end hidden>All compatible products loaded</span></div>
     </div>
-    <div class="pgrid" data-catalog-grid></div>
-    <p class="state-text" data-catalog-empty hidden>No compatible products match these filters.</p>
-    <div class="catalog-foot"><button class="btn btn-secondary" type="button" data-catalog-more hidden>Load more</button><span class="tech" data-catalog-end hidden>All compatible products loaded</span></div>
   </section>
 
   <section class="section container">
