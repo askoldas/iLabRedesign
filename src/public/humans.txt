@@ -1,5 +1,5 @@
 /* TEAM */
-Client: SIA "iLab", Riga, Latvia — https://ilab.lv
+Client: SIA "iLab", Riga, Latvia - https://ilab.lv
 Design and build: iLab redesign team, 2026
 
 /* SITE */
