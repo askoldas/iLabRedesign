@@ -48,7 +48,7 @@
     setTimeout(() => {
       status && (status.textContent = cart.length ? `${cart.length} ${cart.length === 1 ? 'line' : 'lines'} · prices re-checked` : '');
       $('[data-cart-empty]').hidden = cart.length > 0; $('[data-cart-foot]').hidden = cart.length === 0;
-      lines.innerHTML = cart.map((l) => { const p = byId.get(l.id); const issue = lineIssue(p, l.qty); const total = p && p.price != null ? money(p.price * l.qty) : '—';
+      lines.innerHTML = cart.map((l) => { const p = byId.get(l.id); const issue = lineIssue(p, l.qty); const total = p && p.price != null ? money(p.price * l.qty) : '-';
         return `<div class="cart-line" data-line="${esc(l.id)}">${p ? imgHTML(p) : '<div class="photo photo--placeholder">No image</div>'}<div><a class="cart-line__name link--quiet" href="${p ? productUrl(p) : '#'}">${esc(p ? p.name : l.id)}</a><p class="tech">SKU ${esc(p ? p.sku : '')}<span class="sep">·</span>${p ? priceLabel(p) : ''}</p></div>
         <div class="cart-line__row"><span class="qty"><button type="button" data-qty-dec aria-label="Decrease quantity">−</button><input type="number" min="1" max="${p ? Math.min(99, p.stock) : 1}" value="${l.qty}" aria-label="Quantity" data-qty-input><button type="button" data-qty-inc aria-label="Increase quantity">+</button></span><button class="btn-text" type="button" data-remove>Remove</button><span class="num">${total}</span></div>${issue ? `<p class="cart-line__note">${esc(issue)}</p>` : ''}</div>`; }).join('');
       $('[data-cart-total]').textContent = money(cartTotal());
@@ -130,7 +130,7 @@
     if (!formOk(iq, (i) => (i.name === 'phone' && !iq.email.value.trim() && !iq.phone.value.trim() ? false : true))) return;
     sending(iq, true); setTimeout(() => { sending(iq, false); const product = iq.dataset.source === 'product';
       $('[data-inquiry-success-title]').textContent = product ? 'Request sent' : 'Inquiry sent';
-      $('[data-inquiry-success-text]').textContent = product ? 'We’ll check availability for this product and contact you using the details you provided.' : 'Thanks — we’ll check availability and contact you using the details you provided.';
+      $('[data-inquiry-success-text]').textContent = product ? 'We’ll check availability for this product and contact you using the details you provided.' : 'Thanks - we’ll check availability and contact you using the details you provided.';
       iq.classList.add('is-success'); }, 700); });
 
   /* ---------------- Search panel ---------------- */
@@ -273,7 +273,7 @@
     const setState = (s) => $$('[data-checkout-state]', co).forEach((p) => (p.hidden = p.dataset.checkoutState !== s));
     const forced = new URL(location.href).searchParams.get('state');
     const decide = () => forced || (!user() ? 'auth' : !cart.length ? 'empty' : 'form');
-    const summary = () => { $('[data-summary-lines]').innerHTML = cart.map((l) => { const p = byId.get(l.id); return `<p class="summary__line"><span>${esc(p ? p.name : l.id)} × ${l.qty}</span><span class="num">${p && p.price != null ? money(p.price * l.qty) : '—'}</span></p>`; }).join('') || '<p class="summary__line"><span>No items</span><span>—</span></p>';
+    const summary = () => { $('[data-summary-lines]').innerHTML = cart.map((l) => { const p = byId.get(l.id); return `<p class="summary__line"><span>${esc(p ? p.name : l.id)} × ${l.qty}</span><span class="num">${p && p.price != null ? money(p.price * l.qty) : '-'}</span></p>`; }).join('') || '<p class="summary__line"><span>No items</span><span>-</span></p>';
       $('[data-summary-subtotal]').textContent = money(cartTotal()); $('[data-summary-delivery]').textContent = fee() ? money(fee()) : 'Free'; $('[data-summary-total]').textContent = money(cartTotal() + fee()); $('[data-summary-warn]').hidden = cartValid() || !cart.length; };
     const syncFulfil = () => { const v = co.fulfillment?.value; $$('[data-fulfil-fields]', co).forEach((f) => (f.hidden = f.dataset.fulfilFields !== v)); const bill = co.querySelector('[data-use-billing]'); const addr = co.querySelector('[data-delivery-address]'); if (bill && addr) addr.hidden = bill.checked; summary(); };
     co.addEventListener('change', syncFulfil);

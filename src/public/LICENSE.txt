@@ -1,4 +1,4 @@
-iLab.lv redesign — proprietary design and code
+iLab.lv redesign - proprietary design and code
 Copyright (c) 2026 SIA "iLab" (reg. no. 40203288307) and its design partner. All rights reserved.
 
 This visual design, its layout, typography system, motion design, markup, styles,

@@ -1,4 +1,4 @@
-# ilab.lv — see LICENSE.txt. Design and code are proprietary.
+# ilab.lv - see LICENSE.txt. Design and code are proprietary.
 User-agent: *
 Disallow: /api/
 Disallow: /admin
